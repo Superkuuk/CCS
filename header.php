@@ -26,9 +26,9 @@
 */
 var handler = setInterval("slideSwitch()", 3000);
 $(document).ready( function() {
-
+   
 });
-    
+
 /*  Run script on window load (images are loaded)
 *   For everything that involves getting attributes of images
 */
@@ -43,54 +43,40 @@ $(window).load( function() {
     var sliding = false;
     //Automatically loop images and 'balls'
     function slideSwitch($nextball) {
-    //if(sliding == false) {          //If sliding is true, no new slideSwitch can be indicated.
-        sliding = true;
+        
+        //Select active image and active ball.
         var $active = $('#slideshow img.active');
         var $activeball = $('#balls img.active');
             
-            //In case no $nextball was inserted in the function, it will automatically get the next image (and thus next ball).
+            //In case no $nextball was inserted in the function, it will automatically select the next image (and thus next ball).
             if(!$nextball) {
-                $nextball =  $activeball.next().length ? $activeball.next()
-                : $('#balls img:first');    
+                $nextball =  $activeball.next().length ? $activeball.next() : $('#balls img:first');    
             }
-            if($nextball.hasClass('active')) {
+                console.log($nextball.hasClass('active'));
+
+            //If selected ball is already active.
+            if($nextball.hasClass('last-active')) {
                 console.log('Actief');
             }
 
+            //Get number of selected ball and previous ball.
             var tempactive = $activeball.attr('class').split('__');
             var activenumber = tempactive[1];
             var tempnext = $nextball.attr('class').split('__');
             var nextnumber = tempnext[1];
         
+            //Make sure next image corresponds to selected ball
             var $next = $('#slideshow img.img__'+nextnumber+'__');
 
             //Check if new image is more to right than old image.
-            if(parseInt(nextnumber) > parseInt(activenumber)) {
-                $active.addClass('last-active')
-                        .dequeue()
-                        .animate({left: '-100%'}, 1000, function() {
-                         $('#slideshow img.last-active').removeClass('last-active')
-                                                    .removeClass('active');
-                            sliding = false;
-                    });
-                $next.css({left: '100%'})
-                    .addClass('active')
-                    .animate({left: 0}, 1000);
-            } else if(parseInt(nextnumber) < parseInt(activenumber)) {
-                $active.addClass('last-active')
-                    .dequeue()
-                    .animate({left: '100%'}, 1000, function() {
-                    $('#slideshow img.last-active').removeClass('last-active')
-                                                    .removeClass('active');
-                    sliding = false;
-                });
-                $next.css({left: '-100%'})
-                    .dequeue()
-                    .addClass('active')
-                    .animate({left: 0}, 1000);
-            }
+                var diff = parseInt(nextnumber) - parseInt(activenumber);
+                $('#slideshow img').each( function() {
+                    $(this).dequeue()
+                    .animate({left: Math.floor($(this).position().left / $(document).width()) * $(document).width() - diff * $(this).width() }, 1000);
+                });    
 
 
+            //Change image of ball
             $activeball.attr("src", "images/ball-open.png").removeClass('active last-active');
             $nextball.attr("src", "images/ball-fill.png").addClass('active');
         $nextball = null;
