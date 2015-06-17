@@ -1,0 +1,16 @@
+ @font-face { font-family: Raleway; src: url('Raleway/Raleway-Regular.ttf'), url('Raleway/Raleway-Regular.woff'); } 
+ @font-face { font-family: Raleway; font-weight: 100; src: url('Raleway/Raleway-Thin.woff'), url('Raleway/Raleway-Thin.ttf');}
+ @font-face { font-family: Raleway; font-weight: 200; src: url('Raleway/Raleway-ExtraLight.ttf'), url('Raleway/Raleway-ExtraLight.woff');}
+
+
+body, html {
+	font-family: 'Raleway', sans-serif;
+    height:100%;
+    min-height:100%;
+    margin:0;
+    padding:0;
+	background-attachment:fixed;
+	background-size: cover;
+	background-repeat: no-repeat;	
+}
+
