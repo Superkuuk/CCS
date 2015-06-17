@@ -8,7 +8,7 @@
 </head>
 <body>
     <header id="jumbotron"> <!-- foto, logo, etc. -->
-    
+            <?php include('header.php'); ?>
     
     </header>
     <nav id="mainnav">
