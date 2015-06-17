@@ -33,16 +33,10 @@ $(document).ready( function() {
 *   For everything that involves getting attributes of images
 */
 $(window).load( function() {
-    //Set logo in vertical middle between top of page and top of mainnav.
-    $('#logo img').css('top', $('#mainnav').offset().top / 2 - $('#logo img').height() / 2);
-    //Set horizontal middle of balls (slideshow)
-    $('#balls').css('left', ($(document).width()/2) - ($('#balls img.active').outerWidth(true)*2));
-    
     $('#balls img').click( function () {
         //Pause interval.
         slideSwitch($('#balls img.'+$(this).attr("class")));
     });
-    
 });
     
     var $nextball;
@@ -53,9 +47,9 @@ $(window).load( function() {
         sliding = true;
         var $active = $('#slideshow img.active');
         var $activeball = $('#balls img.active');
-
+            
+            //In case no $nextball was inserted in the function, it will automatically get the next image (and thus next ball).
             if(!$nextball) {
-                console.log('nieuwe nextball')
                 $nextball =  $activeball.next().length ? $activeball.next()
                 : $('#balls img:first');    
             }
