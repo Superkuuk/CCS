@@ -15,17 +15,52 @@ body, html {
 	background-repeat: no-repeat;	
 }
 
+/* Slide show */
 header {
-    positoin: absolute;
+    position: absolute;
     left: 0; top: 0;
     width: 100%;
     padding: 0; margin: 0;
     height: 58%;
+    overflow: hidden;
+}
+#slideshow img {
+    position: absolute;
+    min-width: 700px;
+    float: left;
+    width: 100%;
+    top: 0;
+    display: none;
+    z-index: -1;
+}
+#slideshow img.active {
+    display: block;
+}
+#logo img {
+    position: absolute;
+    right: 0; right: 3%;
+    width: 43%;
+}
+#balls {
+    position: absolute;
+    bottom: 3%;
+}
+#balls img {
+    float: left;
+    width: 15%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+#balls img:hover {
+    cursor: pointer;
 }
 
+
+/* Navigation menu */
 #mainnav {
     position: absolute;
     width: 100%;
+    top: 58%;
 }
 #mainnav ul {
     margin: 0;
@@ -47,6 +82,8 @@ header {
 }
 
 .page {
+    position: absolute;
+    top: calc(58% + 26pt + 2%); /* Top of #mainnav + height of text + padding*2 */
     margin: 8% 8% 3% 8%;
     
     -webkit-columns: 2; /* Chrome, Safari, Opera */
@@ -66,10 +103,10 @@ hr {
 footer {
     height: 8%;
     width: 100%;
-    position: absolute;
-/* 
-	bottom: 0;
- */
+    position: absolute; 
+/*
+    bottom: 0;
+*/
 }
 .footer_icon img{
 	width: 100%;
