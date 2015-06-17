@@ -3,8 +3,10 @@
 <title>
 	CCS
 </title>
+    <script src="scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
 </head>
 <body>
-Hoi Jelly! 3.0
-    Jelle schrijft hier wat.
-</body></html>
+
+    
+</body>
+</html>
