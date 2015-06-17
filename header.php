@@ -39,10 +39,7 @@ $(window).load( function() {
     $('#balls').css('left', ($(document).width()/2) - ($('#balls img.active').outerWidth(true)*2));
     
     $('#balls img').click( function () {
-        clearInterval(handler);
-        console.log('interval cleared');
-        setTimeout(setInterval("slideSwitch()", 3000), 2000);
-        console.log('timeout set');
+        //Pause interval.
         slideSwitch($('#balls img.'+$(this).attr("class")));
     });
     
@@ -100,6 +97,7 @@ $(window).load( function() {
             $activeball.attr("src", "images/ball-open.png").removeClass('active last-active');
             $nextball.attr("src", "images/ball-fill.png").addClass('active');
         $nextball = null;
+    }
     }
     
 </script>
