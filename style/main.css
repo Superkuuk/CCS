@@ -1,7 +1,7 @@
  @font-face { font-family: Raleway; src: url('Raleway/Raleway-Regular.ttf'), url('Raleway/Raleway-Regular.woff'); } 
  @font-face { font-family: Raleway; font-weight: 100; src: url('Raleway/Raleway-Thin.woff'), url('Raleway/Raleway-Thin.ttf');}
  @font-face { font-family: Raleway; font-weight: 200; src: url('Raleway/Raleway-ExtraLight.ttf'), url('Raleway/Raleway-ExtraLight.woff');}
-
+ @font-face { font-family: "Slim Joe"; src: url('Slim Joe/Slim Joe.otf'); } 
 
 body, html {
 	font-family: 'Raleway', sans-serif;
