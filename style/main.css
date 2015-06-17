@@ -13,6 +13,7 @@ body, html {
 	background-attachment:fixed;
 	background-size: cover;
 	background-repeat: no-repeat;	
+	position: relative
 }
 
 /* Slide show */
@@ -104,9 +105,8 @@ footer {
     height: 8%;
     width: 100%;
     position: absolute; 
-/*
-    bottom: 0;
-*/
+    top: 150%;
+
 }
 .footer_icon img{
 	width: 100%;
