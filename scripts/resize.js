@@ -18,6 +18,9 @@ $(window).load( function() {
         
         //Set top of .page
         $('.page').css('top', slideshowHeight + $('#mainnav').outerHeight(true));
+        $('.page').css('margin-top', $('#mainnav').height());
         
+        //Set footer to the bottom of the page (.page top + hoogte van .page, inclusief zijn margin)
+        $('footer').css('top', ($('.page').position().top + $('.page').outerHeight(true) )+ 'px');
     }).resize();
 });
