@@ -7,7 +7,7 @@
     <link href="style/main.css" rel="stylesheet">
 </head>
 <body>
-    <header id="jumbotron">
+    <header id="jumbotron"> <!-- foto, logo, etc. -->
     
     
     </header>
@@ -30,7 +30,7 @@
     </div>
     
     <footer>
-        <hr>
+        <?php include('footer.php'); ?>
         
     </footer>
 </body>
