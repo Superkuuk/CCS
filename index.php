@@ -4,6 +4,8 @@
 	CCS
 </title>
     <script src="scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="scripts/resize.js" type="text/javascript"></script>
+
     <link href="style/main.css" rel="stylesheet">
 </head>
 <body>
