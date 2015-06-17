@@ -1,9 +1,9 @@
 <div id="slideshow">
     
     <img src="images/header01.jpg" class="active img__01__">
-    <img src="images/header01.jpg" class="img__02__">
+    <img src="images/header02.jpg" class="img__02__">
     <img src="images/header01.jpg" class="img__03__">
-    <img src="images/header01.jpg" class="img__04__">
+    <img src="images/header02.jpg" class="img__04__">
 
 </div>
 
@@ -57,14 +57,12 @@ $(window).load( function() {
                 console.log('Actief');
             }
 
-
-            var $next = $active.next().length ? $active.next()
-                : $('#slideshow img:first');
-
             var tempactive = $activeball.attr('class').split('__');
             var activenumber = tempactive[1];
             var tempnext = $nextball.attr('class').split('__');
             var nextnumber = tempnext[1];
+        
+            var $next = $('#slideshow img.img__'+nextnumber+'__');
 
             //Check if new image is more to right than old image.
             if(parseInt(nextnumber) > parseInt(activenumber)) {
