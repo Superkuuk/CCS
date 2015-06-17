@@ -24,7 +24,8 @@ header {
 }
 
 #mainnav {
-    position: relative;
+    position: absolute;
+    width: 100%;
 }
 #mainnav ul {
     margin: 0;
@@ -46,9 +47,14 @@ header {
 }
 
 .page {
-    margin-top: 8%;
-    margin-bottom: 8%;
-    margin-left: 8%;/* left side of home not yet defined correct*/
+    margin: 8% 8% 3% 8%;
+    
+    -webkit-columns: 2; /* Chrome, Safari, Opera */
+    -moz-columns: 2; /* Firefox */
+    columns: 2;
+    -webkit-column-gap: 50px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 50px; /* Firefox */
+    column-gap: 50px;
 }
 hr {
     width: 100%;
@@ -59,6 +65,11 @@ hr {
 /* Footer */
 footer {
     height: 8%;
+    width: 100%;
+    position: absolute;
+/* 
+	bottom: 0;
+ */
 }
 .footer_icon img{
 	width: 100%;
