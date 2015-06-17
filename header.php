@@ -43,7 +43,7 @@ $(window).load( function() {
     var sliding = false;
     //Automatically loop images and 'balls'
     function slideSwitch($nextball) {
-    if(sliding == false) {          //If sliding is true, no new slideSwitch can be indicated.
+    //if(sliding == false) {          //If sliding is true, no new slideSwitch can be indicated.
         sliding = true;
         var $active = $('#slideshow img.active');
         var $activeball = $('#balls img.active');
@@ -67,6 +67,7 @@ $(window).load( function() {
             //Check if new image is more to right than old image.
             if(parseInt(nextnumber) > parseInt(activenumber)) {
                 $active.addClass('last-active')
+                        .dequeue()
                         .animate({left: '-100%'}, 1000, function() {
                          $('#slideshow img.last-active').removeClass('last-active')
                                                     .removeClass('active');
@@ -77,12 +78,14 @@ $(window).load( function() {
                     .animate({left: 0}, 1000);
             } else if(parseInt(nextnumber) < parseInt(activenumber)) {
                 $active.addClass('last-active')
+                    .dequeue()
                     .animate({left: '100%'}, 1000, function() {
                     $('#slideshow img.last-active').removeClass('last-active')
                                                     .removeClass('active');
                     sliding = false;
                 });
                 $next.css({left: '-100%'})
+                    .dequeue()
                     .addClass('active')
                     .animate({left: 0}, 1000);
             }
@@ -91,7 +94,7 @@ $(window).load( function() {
             $activeball.attr("src", "images/ball-open.png").removeClass('active last-active');
             $nextball.attr("src", "images/ball-fill.png").addClass('active');
         $nextball = null;
-        }
+      //  }
     }
     
 </script>
