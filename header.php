@@ -21,7 +21,7 @@
 /*  Run script on document load (no images are loaded).
 *   
 */
-var handler = setInterval("slideSwitch()", 3000);
+var handler = setInterval("slideSwitch()", 6000);
 $(document).ready( function() {
    
 });
@@ -56,7 +56,7 @@ $(window).load( function() {
        
         //Move image.
         $('#slideshow img').dequeue()
-                        .animate({left: - nextnumber * $(this).width()}, 1000);
+                        .animate({left: - nextnumber * $(this).width()}, 750);
 
         //Change image of ball
         $activeball.attr("src", "images/ball-open.png").removeClass('active last-active');
