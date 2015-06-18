@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html><head>
+    <meta name="robots" content="noindex nofollow">
 <title>
 	CCS
 </title>
