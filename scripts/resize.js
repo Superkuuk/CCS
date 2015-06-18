@@ -5,7 +5,7 @@ $(window).load( function() {
     $(window).resize( function() {
         
         var slideshowHeight = $('#slideshow img').height();  //Height of slideshow (jumbotron/header).
-        var contentHeight = $('.page').outerHeight(true);
+        var contentHeight = ($('#mainnav').outerHeight(true) + $('.page').outerHeight(true) + $('footer').outerHeight(true));
         
         //Set mainnav to bottom of slideshow
         $('#mainnav').css('top', slideshowHeight); 
