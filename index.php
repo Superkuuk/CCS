@@ -13,6 +13,34 @@
     <header id="jumbotron"> <!-- foto, logo, etc. -->
             <?php include('header.php'); ?>
     </header>
+
+	<svg id="svgBalkBoven" viewBox="0 0 1000 250" preserveAspectRatio="none" width="100%" height="100%" style="background-color:red;">
+	<polygon id="poly" fill="rgba(255,255,255,0.5)" points="240,0 300,0 60,250 0,250" />
+	
+	<animate 
+		xlink:href="#poly"
+		attributeName="points"
+		from="90,0 150,0 60,160 0,160"
+		to="0,0 60,0 60,160 0,160"
+		dur="500ms"
+		begin="indefinite"
+		fill="freeze" 
+		id="poly-anim" />
+	</svg>
+
+	<svg id="svgBalkOnder" viewBox="0 250 1000 750" preserveAspectRatio="none" width="100%" height="100%" style="background-color:yellow; margin-top:-2px;">
+	<rect x="0" y="250" width="60" height="750" fill="#FFD41D" />
+	
+	<animate 
+		xlink:href="#poly"
+		attributeName="points"
+		from="90,0 150,0 60,160 0,160"
+		to="0,0 60,0 60,160 0,160"
+		dur="500ms"
+		begin="indefinite"
+		fill="freeze" 
+		id="poly-anim" />
+	</svg>
     
     <nav id="mainnav">
         <hr>

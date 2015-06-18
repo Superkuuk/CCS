@@ -4,11 +4,16 @@
 $(window).load( function() {
     $(window).resize( function() {
         
-        var slideshowHeight = $('#slideshow img.active').height();  //Height of slideshow (jumbotron/header).
+        var slideshowHeight = $('#slideshow img').height();  //Height of slideshow (jumbotron/header).
+        var contentHeight = $('.page').outerHeight(true);
         
         //Set mainnav to bottom of slideshow
-        $('#mainnav').css('top', slideshowHeight);
+        $('#mainnav').css('top', slideshowHeight); 
         $('#jumbotron').height(slideshowHeight);
+              
+        //Set svg drawing screen to appropriate height.
+        $('#svgBalkBoven').css('height', slideshowHeight);
+        $('#svgBalkOnder').css('height', contentHeight);
         
         //Set logo in vertical middle between top of page and top of mainnav.
         $('#logo img').css('top', $('#mainnav').offset().top / 2 - $('#logo img').height() / 2);
