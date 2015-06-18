@@ -30,7 +30,7 @@
 	</svg>
 
 	<svg id="svgBalkOnder" viewBox="0 250 1000 750" preserveAspectRatio="none" width="100%" height="100%" style="margin-top:-2px;">
-	<rect id="rect" x="0" y="250" width="60" height="750" fill="#FFD41D" />
+	<rect id="rect" x="0" y="250" width="60" height="750" fill="rgba(236,33,39,0.2)" />
 	
 	<animate 
 		xlink:href="#rect"
