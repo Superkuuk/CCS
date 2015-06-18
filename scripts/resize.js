@@ -4,7 +4,12 @@
 $(window).load( function() {
     $(window).resize( function() {
         
-        var slideshowHeight = $('#slideshow img').height();  //Height of slideshow (jumbotron/header).
+        //If homepage is selected
+        if(home) {
+            var slideshowHeight = $('#slideshow img').height();  //Height of slideshow (jumbotron/header).
+        } else {
+            var slideshowHeight = $('#slideshow img').height() / 1.5;  //Height of slideshow (jumbotron/header).
+        }
         var contentHeight = ($('#mainnav').outerHeight(true) + $('.page').outerHeight(true) + $('footer').outerHeight(true));
         
         //Set mainnav to bottom of slideshow

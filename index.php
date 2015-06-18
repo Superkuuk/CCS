@@ -5,9 +5,9 @@
 	CCS
 </title>
     <script src="scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="scripts/navigation.js" type="text/javascript"></script>
     <script src="scripts/resize.js" type="text/javascript"></script>
     <script src="scripts/balk.js" type="text/javascript"></script>
-    <script src="scripts/navigation.js" type="text/javascript"></script>
     
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
