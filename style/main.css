@@ -29,27 +29,13 @@ header {
     position: absolute;
     min-width: 700px;
     float: left;
-    width: 100%;
-    left: 100%;
+    width: 400%;
+    left: 0;
     top: 0;
     z-index: -1;
-    display: inline-block;
+    display: block;
 }
-#slideshow .img__01__{
-    left: 0;
-}
-#slideshow .img__02__ {
-    left: 100%;
-}
-#slideshow .img__03__ {
-    left: 200%;
-}
-#slideshow .img__04__ {
-    left: 300%;
-}
-#slideshow img.active {
-    left: 0;
-}
+
 #logo img {
     position: absolute;
     right: 0; right: 3%;
