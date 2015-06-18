@@ -17,6 +17,7 @@ $(document).ready( function() {
 
             //Load text from file.
             $('#'+link).load(link+'.php');
+            $(window).resize();
             
             var nextnumber = $(this).position().left;
                     var slideshowHeight = $('#slideshow img').height();  //Height of slideshow (jumbotron/header).
