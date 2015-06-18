@@ -4,6 +4,7 @@
 $(document).ready( function() {
     
     $('#home').load('home.php');
+    $(window).resize();
     var current = 00;
     var navactive = false;
     $('#mainnav li').click( function() {
