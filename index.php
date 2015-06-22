@@ -8,6 +8,7 @@
     <script src="scripts/navigation.js" type="text/javascript"></script>
     <script src="scripts/resize.js" type="text/javascript"></script>
     <script src="scripts/balk.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 

@@ -83,12 +83,14 @@ header {
     top: calc(58% + 26pt + 2%); /* Top of #mainnav + height of text + padding*2 */
     margin: 8% 8% 8% 8%;
     
-    -webkit-columns: 2; /* Chrome, Safari, Opera */
-    -moz-columns: 2; /* Firefox */
+/* 	Columns voor de normale opmaak. Aangezien we nu opmaak hebben per pagina, schakel ik dit uit.
+    -webkit-columns: 2;
+    -moz-columns: 2;
     columns: 2;
-    -webkit-column-gap: 50px; /* Chrome, Safari, Opera */
-    -moz-column-gap: 50px; /* Firefox */
+    -webkit-column-gap: 50px;
+    -moz-column-gap: 50px;
     column-gap: 50px;
+ */
 }
 
 hr {
@@ -113,4 +115,22 @@ footer {
 	width: 180px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/* Contacts */
+
+/* 
+|8%[38%]8%[38%]8%|
+ */
+#contact_left {
+	width: 46%;
+	background-color: grey;
+	float: left;
+}
+
+#contact_right {
+	width: 46%;
+	background-color: grey;
+	height: 200px;
+	float: right;
 }
