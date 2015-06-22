@@ -1,122 +1,119 @@
-/* 
-*
-*/
-
-var home = true;
-var animationSpeed = 750;
-var oldSlideshowHeight;
+// wordt ook in resize.js gebruikt!!
+var homeActive = true;
+var pxChange;
 
 $(document).ready( function() {
-    
-    //Load home-page
-    $('#home').load('home.php');
-    $(window).resize();
-    
-    var current = 00;
-    var navactive = false;
-    $('#mainnav li').click( function() {
-        if(!navactive) {
-            //Clicked link
-            var link = $(this).text().toLowerCase();
+	var AnimateActive = false;
+	var currentPage = 'Home';
+	pxChange = $(window).height() * 0.3;
+	
+	$("#mainnav ul li").click(function(){
+		if(AnimateActive == false){
+			AnimateActive = true;
 
-            //Append new page in #mainpage.
-            $('#mainpage').append('<div id="'+link+'" class="page newpage"></div>');
+			// Measure text width and position; set width and pos of rect
+			var html_org = $(this).html();
+			var html_calc = '<span>' + html_org + '</span>';
+			$(this).html(html_calc);
+			var width = $(this).find('span:first').width();
+			width = (width/$(window).width()*1000);
+			var margin = width * 0.3;
+			width = width + margin;
+			var pos = $(this).find('span:first').position().left;
+			pos = pos/$(window).width()*1000 - 0.5 * margin;
+			var points = $('#poly').attr('points').replace(/ /g, ",").split(",");
+			
+			$(this).html(html_org);
+			$("#rect-anim-width").attr("to", width);
+			$("#rect-anim-pos").attr("to", pos);
+		
+			if(html_org == "Home"){		
+				$("#rect-anim-color").attr("to", "rgba(236,33,39,0.2)");
+			}else if(html_org == "Info"){
+				$("#rect-anim-color").attr("to", "rgba(57,181,75,0.25)");
+			}else if(html_org == "Events"){
+				$("#rect-anim-color").attr("to", "rgba(247,148,30,0.25)");
+			}else{
+				$("#rect-anim-color").attr("to", "rgba(109,207,246,0.25)");
+			}
+			
+			if($(this).html() == 'Home' && homeActive != true){
+				// Van iets anders naar home
+				currentPage = 'Home';				
+				$('#jumbotron').animate({'height': '+='+pxChange+'px'}, 750, "linear", function(){ 
+					//done
+					homeActive = true;
+				});
+				$('#mainnav').animate({'top': '+='+pxChange+'px'}, 750, "linear", function(){});
+				$('#slideshow img').animate({'top': '+='+(pxChange/2)+'px'}, 750, "linear", function(){});
+				slideshowHeight = $('#jumbotron').height() + pxChange;
+				points[0] = pos + width*2.5;
+				points[2] = pos + width*3.5;
+				
+			}else if($(this).html() != 'Home' && homeActive == true){
+				// Van Home naar iets anders
+				currentPage = $(this).html();
+				$('#jumbotron').animate({'height': '-='+pxChange+'px'}, 750, "linear", function(){ 
+					//done 				
+					homeActive = false;
+				});
+				$('#mainnav').animate({'top': '-='+pxChange+'px'}, 750, "linear", function(){});
+				$('#slideshow img').animate({'top': '-='+(pxChange/2)+'px'}, 750, "linear", function(){});
+				slideshowHeight = $('#jumbotron').height() - pxChange;
+				points[0] = pos;
+				points[2] = pos + width;
 
-            //Load text from file.
-            $('#'+link).load(link+'.php');
-            
-            var nextnumber = $(this).position().left;
-            var slideshowHeight = $('#slideshow img').height();  //Height of slideshow (jumbotron/header).
-            console.log(oldSlideshowHeight);
-            oldSlideshowHeight = slideshowHeight;       //Height of slideshow before switching page
-            console.log(oldSlideshowHeight);
+			}else{
+				currentPage = $(this).html();
+				slideshowHeight = $('#jumbotron').height();
+			}
+			// Set SVG animation data
+			var balkHeight = ($(document).height()-slideshowHeight)*1000/$(document).height();
+			$('#rect-anim-height').attr('to', balkHeight);
+			$('#rect-anim-y').attr('to', 1000-balkHeight+2); 					
 
-            //Check if clicked page is different than current page
-            if(nextnumber != current) {
-                navactive = true;
-                
-                //Check if page is homepage.
-                if(nextnumber == 0) {
-                    home = true;
-                    $('#logo img').dequeue()
-                                    .animate({ width : slideshowHeight,
-                                             left : '65%',
-                                             top : $('#mainnav').offset().top / 2 - $('#logo img').height() / 2
-                                             }, animationSpeed);
-                
-                } else {
-                    home = false;
-                    slideshowHeight = slideshowHeight / 1.5;
-                    $('#logo img').css('left', $('#logo img').position().left);
-                    $('#logo img').dequeue()
-                                    .animate({ width : slideshowHeight * 0.75,
-                                             left : $(window).width() * 0.1,
-                                             top : $('#mainnav').offset().top / 2 - $('#logo img').height() / 2
-                                             }, animationSpeed);
-                }
-                
-                //Animate #mainnav, the slideshow and the previous page.
-                $('#mainnav').animate({ top : slideshowHeight }, animationSpeed); 
-                $('#jumbotron').animate({ height : slideshowHeight }, animationSpeed);
-                $('.active-page').animate({ top: slideshowHeight + $('#mainnav').height() }, animationSpeed);
-                
-                //Animate left
-                if(nextnumber > current) {
-                    var width = $('.active-page').width();
-                    $('body').css('overflow-x', 'hidden');
-                    $('.active-page').dequeue()
-                                .width(width)
-                                .animate({ left: '-100%'}, animationSpeed, function() {
-                                $('body').css('overflow-x', 'initial');
-                                $(this).remove();
-                    });
-                    $('.page').css('top', oldSlideshowHeight + $('#mainnav').outerHeight(true));
-                    $('.page').css('margin-top', $('#mainnav').height());
-                    $('.newpage').css('left', '100%')
-                                .width(width)
-                                .dequeue()
-                                .animate({ left: 0,
-                                            top: slideshowHeight + $('#mainnav').outerHeight(true) 
-                                            }, animationSpeed, function() {
-                                $(this).addClass('page')
-                                        .addClass('active-page')
-                                        .removeClass('newpage');
-                                current = nextnumber;
-                                navactive = false;
-                                $(window).resize();
-                    });
-                } 
-                //Animate right
-                else if(nextnumber < current) {
-                    var width = $('.active-page').width();
-                    $('body').css('overflow-x', 'hidden');
-                    $('.active-page').dequeue()
-                                .width(width)
-                                .animate({ left: '100%',
-                                            top: slideshowHeight + $('#mainnav').outerHeight(true)
-                                            }, animationSpeed, function() {
-                                $('body').css('overflow-x', 'initial');
-                                $(this).remove();
-                    });
-                    console.log($('.active-page').position().top);
-                    $('.page').css('top', oldSlideshowHeight + $('#mainnav').outerHeight(true));
-                    $('.page').css('margin-top', $('#mainnav').height());
-                    $('.newpage').css('left', '-100%')
-                                .width(width)
-                                .dequeue()
-                                .animate({ left: 0,
-                                            top: slideshowHeight + $('#mainnav').outerHeight(true)
-                                            }, animationSpeed, function() {
-                                $(this).addClass('page')
-                                        .addClass('active-page')
-                                        .removeClass('newpage');
-                                current = nextnumber;
-                                navactive = false;
-                                $(window).resize();
-                    });
-                }
-            }
-        
-        }
-    });
+			var yposRect = parseInt($('#rect').attr('y'));
+			points[1] = 0;
+			points[3] = 0;
+			points[4] = (pos + width);
+			points[5] = yposRect;
+			points[6] = pos;
+			points[7] = yposRect;
+
+			$("#poly-anim").attr("to", points[0] + "," + points[1] + " " + points[2] + "," + points[3] + " " + points[4] + "," + points[5] + " " + points[6] + "," + points[7]);
+
+			// SVG animation
+			animationToCheck = document.getElementById("rect-anim-y");
+			animationToCheck.beginElement();
+			animationToCheck = document.getElementById("rect-anim-height");
+			animationToCheck.beginElement();
+			animationToCheck = document.getElementById("rect-anim-width");
+			animationToCheck.beginElement();
+			animationToCheck = document.getElementById("rect-anim-pos");
+			animationToCheck.beginElement();
+			animationToCheck = document.getElementById("rect-anim-color");
+			animationToCheck.beginElement();
+			animationToCheck = document.getElementById("poly-anim");
+			animationToCheck.beginElement();
+
+
+			$(window).resize();
+			setTimeout(function(){
+				AnimateActive = false;
+				$("#rect-anim-width").attr("from", width);
+				$("#rect-anim-pos").attr("from", pos);
+				$("#poly-anim").attr("from", points[0] + "," + points[1] + " " + points[2] + "," + points[3] + " " + points[4] + "," + points[5] + " " + points[6] + "," + points[7]);
+
+				if(html_org == "Home"){		
+					$("#rect-anim-color").attr("from", "rgba(236,33,39,0.2)");		
+				}else if(html_org == "Info"){
+					$("#rect-anim-color").attr("from", "rgba(57,181,75,0.25)");
+				}else if(html_org == "Events"){
+					$("#rect-anim-color").attr("from", "rgba(247,148,30,0.25)");			
+				}else{
+					$("#rect-anim-color").attr("from", "rgba(109,207,246,0.25)");			
+				}
+			}, 750);
+		}
+	});
 });

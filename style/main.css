@@ -33,10 +33,15 @@ header {
     display: block;
 }
 
-#logo img {
+/* 
+Logo verhouding: 1500x887
+    width: 46.124%; bij height 78%
+ */
+#logo img { 
     position: absolute;
-    right: 0; right: 3%;
-    width: 43%;
+    right: 3%;
+    height: 78%;
+    top: 11%;
 }
 #balls {
     position: absolute;

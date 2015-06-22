@@ -9,19 +9,28 @@ $(window).load( function() {
 	var pos = $( "#mainnav ul li:first" ).find('span:first').position().left;
 	pos = pos/$(window).width()*1000 - 0.5 * margin;
 	$( "#mainnav ul li:first" ).html(html_org);
-	
-	// lb, rb, ro, lo
-	var points = [pos,0, pos+width,0, pos+width,250, pos,250]; // standard rect	
-	
+		
 	$("#rect-anim-width").attr("from", width);
 	$("#rect-anim-pos").attr("from", pos);
 	$("#rect-anim-color").attr("from", "rgba(236,33,39,0.2)");
-	points = [pos+width*2.5,0, pos+width*3.5,0, pos+width,250, pos,250];
-	$("#poly-anim").attr("from", points[0] + "," + points[1] + " " + points[2] + "," + points[3] + " " + points[4] + "," + points[5] + " " + points[6] + "," + points[7]);
 	
-	$("#poly").attr("points", points[0] + "," + points[1] + " " + points[2] + "," + points[3] + " " + points[4] + "," + points[5] + " " + points[6] + "," + points[7]);
 	$("#rect").attr("x", pos);
 	$("#rect").attr("width", width);
+		
+	var points = $('#poly').attr('points').replace(/ /g, ",").split(",");
+	var yposRect = parseInt($('#rect').attr('y'));
+	
+	points[0] = pos + width*2.5;
+	points[1] = 0;
+	points[2] = pos + width*3.5;
+	points[3] = 0;
+	points[4] = (pos + width);
+	points[5] = yposRect;
+	points[6] = pos;
+	points[7] = yposRect;
+	$("#poly").attr("points", points[0] + "," + points[1] + " " + points[2] + "," + points[3] + " " + points[4] + "," + points[5] + " " + points[6] + "," + points[7]);
+	$("#poly-anim").attr("from", points[0] + "," + points[1] + " " + points[2] + "," + points[3] + " " + points[4] + "," + points[5] + " " + points[6] + "," + points[7]);
+
 	
 	var active = true;	
 	$( "#mainnav ul li" ).click(function() {
