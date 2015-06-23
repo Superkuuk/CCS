@@ -49,6 +49,8 @@ $(window).load( function() {
         //In case no $nextball was inserted in the function, it will automatically select the next image (and thus next ball).
         if(!$nextball) {
                 $nextball =  $activeball.next().length ? $activeball.next() : $('#balls img:first');    
+        } else if ($nextball == 'current') {
+                $nextball = $activeball;
         }
                 
         var tempnext = $nextball.attr('class').split('__');

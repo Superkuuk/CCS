@@ -87,6 +87,7 @@ Logo verhouding: 1500x887
     position: absolute;
     top: calc(58% + 26pt + 2%); /* Top of #mainnav + height of text + padding*2 */
     margin: 8% 8% 8% 8%;
+    width: calc(100% - 16%); /* Full page width minus margin at both sides. Is nodig omdat anders de animatie niet goed werkt.*/ 
     
 /* 	Columns voor de normale opmaak. Aangezien we nu opmaak hebben per pagina, schakel ik dit uit.
     -webkit-columns: 2;
@@ -98,13 +99,16 @@ Logo verhouding: 1500x887
  */
 }
 
+
 hr {
     width: 100%;
     height: 0px;
     padding: 0; margin: 0;
 }
 
+
 /* Footer */
+
 footer {
     height: 8%;
     width: 100%;
@@ -121,6 +125,23 @@ footer {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+
+/* Info */
+
+#Info p {
+    margin: 0; padding: 0;
+    float: left;
+    clear: left;
+    width: 45%;
+}
+#Info img {
+    float: left;
+    clear: right;
+    width: 45%;
+    margin-left: 8%;
+}
+
 
 /* Contacts */
 

@@ -1,38 +1,57 @@
-Infopage.<br><br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Nam rhoncus eros at augue posuere laoreet. Nam ut risus a ex pulvinar pharetra. 
-            Praesent sollicitudin odio eget urna faucibus, eget fringilla leo tincidunt. Fusce 
-            quis porttitor est. Etiam non nisi eu ligula malesuada venenatis ac non quam.
-             Suspendisse malesuada leo vestibulum dolor vulputate tempus. Duis quam odio, 
-             efficitur ac rhoncus ac, posuere ac nisi. Mauris sit amet tempor justo. Vivamus
-              porttitor faucibus ligula at imperdiet. Ut at pulvinar nibh, at porttitor nulla.
-               Aenean tellus nisl, ullamcorper sit amet erat ut, volutpat malesuada nisi. 
-               Maecenas mi elit, vestibulum sed odio sit amet, gravida hendrerit justo. 
-               Vestibulum suscipit luctus metus, nec interdum mauris euismod et. Vivamus 
-               imperdiet sit amet nisl sit amet volutpat. Nunc in ultricies neque. Vestibulum 
-               arcu purus, interdum eu elementum sed, tincidunt sit amet turpis. Donec eget 
-               risus a augue maximus volutpat id sed mi. Vestibulum in magna ac nulla malesuada 
-               varius et at tortor. Sed hendrerit diam sit amet cursus venenatis. Aenean tincidunt
-                semper tempor. In neque ipsum, ultricies convallis sem ac, gravida mollis
-                 felis. Proin vel pellentesque risus, nec tincidunt ligula. Ut et pellentesque 
-                 odio. Morbi pharetra diam et ex dignissim, a consectetur purus efficitur.
-                  Donec sollicitudin neque quis hendrerit scelerisque. Proin a lacus in purus 
-                  gravida ullamcorper id eget odio.
-    	            Nam rhoncus eros at augue posuere laoreet. Nam ut risus a ex pulvinar pharetra. 
-            Praesent sollicitudin odio eget urna faucibus, eget fringilla leo tincidunt. Fusce 
-            quis porttitor est. Etiam non nisi eu ligula malesuada venenatis ac non quam.
-             Suspendisse malesuada leo vestibulum dolor vulputate tempus. Duis quam odio, 
-             efficitur ac rhoncus ac, posuere ac nisi. Mauris sit amet tempor justo. Vivamus
-              porttitor faucibus ligula at imperdiet. Ut at pulvinar nibh, at porttitor nulla.
-               Aenean tellus nisl, ullamcorper sit amet erat ut, volutpat malesuada nisi. 
-               Maecenas mi elit, vestibulum sed odio sit amet, gravida hendrerit justo. 
-               Vestibulum suscipit luctus metus, nec interdum mauris euismod et. Vivamus 
-               imperdiet sit amet nisl sit amet volutpat. Nunc in ultricies neque. Vestibulum 
-               arcu purus, interdum eu elementum sed, tincidunt sit amet turpis. Donec eget 
-               risus a augue maximus volutpat id sed mi. Vestibulum in magna ac nulla malesuada 
-               varius et at tortor. Sed hendrerit diam sit amet cursus venenatis. Aenean tincidunt
-                semper tempor. In neque ipsum, ultricies convallis sem ac, gravida mollis
-                 felis. Proin vel pellentesque risus, nec tincidunt ligula. Ut et pellentesque 
-                 odio. Morbi pharetra diam et ex dignissim, a consectetur purus efficitur.
-                  Donec sollicitudin neque quis hendrerit scelerisque. Proin a lacus in purus 
-                  gravida ullamcorper id eget odio.
+<div id="read-more-block"><p>Deze informatie  meer info meer info meer info is nog veel leuker. 
+    Veel plezier met het maken van de website Rutger en Jelle. 
+    Voor vragen weten jullie ons te vinden!</p>
+    
+    <img src="images/product_01.jpg" alt="Hier komt een afbeelding van ons product.">
+    
+    <p>Hier komt de extra informatie wanneer je op het plusje drukt met een leuke extra fotoooo. 
+        Normaal gesproken zou de er onder de afbeelding eenzelfde ruimte zijn als de rode streepjes aangeven. 
+        Maar deze pagina heeft een beperkte grootte</p>
+    
+    <img src="images/product_01.jpg" alt="Hier komt een afbeelding van een detail van ons product.">
+    
+</div>
+	<script>
+		// Zelf in te vullen:
+		var hoogte_block = 300;	// wordt nog afgerond naar het meest naarbije getal wat goed uitkomt met line-height
+		var read_more_text_open = "+";
+		var read_more_text_closed = "-";
+		
+		// automated calculated terminated
+		var real_height = $("#read-more-block").height();
+		var fontSize = $("#read-more-block").css('font-size');
+		var lineHeight = Math.floor(parseInt(fontSize.replace('px','')) * 1.5);
+		var expandedInfo = false;
+		
+		hoogte_block = Math.floor(hoogte_block / lineHeight) * lineHeight;
+		
+		if($("#read-more-block").height() > hoogte_block){
+			$("#read-more-block").css({
+				'height': hoogte_block,
+				'overflow': 'hidden'
+			});
+			
+			// Pas span aan naar gewenste opmaak
+			$("#read-more-block").after('<span id="expand" style="cursor: pointer; color: rgba(109,207,246,1)" onclick="readMore();">'+read_more_text_open+'</span>');
+		}
+		
+		function readMore(){
+			if(expandedInfo == false){
+				$("#read-more-block").animate({
+					'height': real_height+'px'
+				}, 500, function(){
+					// animation done
+					$("#expand").html(read_more_text_closed);
+					expandedInfo = true;
+				});
+			}else{
+				$("#read-more-block").animate({
+					'height': hoogte_block+'px'
+				}, 500, function(){
+					// animation done
+					$("#expand").html(read_more_text_open);
+					expandedInfo = false;
+				});
+			}
+		}
+	</script>

@@ -1,3 +1,14 @@
+/*
+    Ik weet niet hoe ver je met het debuggen van de balk was, 
+    maar hier enkele dingetjes die mij er over opvielen.
+    Van Home naar een 'andere' pagina maakt de balk te hoog. 
+    Van een 'andere' pagina naar een 'andere' pagina navigeren
+    blijven de bovenste punten van de schuine balk staan 
+    (van Home naar andere pagina gaat dit wel goed).
+    Resize maakt de balk wel kleiner, maar zet hem niet op de goede positie.
+*/
+    
+
 $(window).load( function() {
 	var html_org = $( "#mainnav ul li:first" ).html();
 	var html_calc = '<span>' + html_org + '</span>';

@@ -1,3 +1,12 @@
+<!--
+    Verschillende sliders interferen met elkaar.
+    Als je van een pagina met een slider naar een
+    andere pagina met een slider navigeert,
+    staat de slider al uitgevouwen.
+-->
+
+
+
 <div id="contact_left">
 	<div id="read-more-block">
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt pretium 

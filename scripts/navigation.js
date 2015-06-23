@@ -6,7 +6,12 @@ $(document).ready( function() {
 	var AnimateActive = false;
 	var currentPage = 'Home';
 	pxChange = $(window).height() * 0.3;
+    
+    var currentPos = 0;
 	
+//    $('.page').load(currentPage+'.php');
+    
+    
 	$("#mainnav ul li").click(function(){
 		if(AnimateActive == false){
 			AnimateActive = true;
@@ -37,9 +42,14 @@ $(document).ready( function() {
 				$("#rect-anim-color").attr("to", "rgba(109,207,246,0.25)");
 			}
 			
+            //Load new page
+            $('#mainpage').append("<div id='"+$(this).html()+"' class='nextpage page'></div>");
+            $('.nextpage').load($(this).html()+'.php');
+            
 			if($(this).html() == 'Home' && homeActive != true){
 				// Van iets anders naar home
-				currentPage = 'Home';				
+				currentPage = 'Home';	
+                currentPos = 0;
 				$('#jumbotron').animate({'height': '+='+pxChange+'px'}, 750, "linear", function(){ 
 					//done
 					homeActive = true;
@@ -49,10 +59,34 @@ $(document).ready( function() {
 				slideshowHeight = $('#jumbotron').height() + pxChange;
 				points[0] = pos + width*2.5;
 				points[2] = pos + width*3.5;
+                $('#logo img').css('right', $(window).width() - ($("#logo img").offset().left + $('#logo img').outerWidth(true)));
+                $('#logo img').css('left', 'auto');
+                $('#logo img').dequeue().animate({ 'right' : '3%'}, 750);
+                
+                //Animate page content
+                $('body').css('overflow-x', 'hidden');
+                $('.active-page').dequeue()
+                                    .animate({'left' : '100%',
+                                             'top' : slideshowHeight + $('#mainnav').outerHeight(true)
+                                             },750);
+                $('#Home').css('left', '-100%')
+                                    .css('top', $('.active-page').css('top'))
+                                    .dequeue()
+                                    .animate({'left' : '0',
+                                             'top' : slideshowHeight + $('#mainnav').outerHeight(true)
+                                             },800, function() {
+                                             $('.active-page').remove();
+                                             $(this).addClass('active-page').removeClass('nextpage');
+                                             $('body').css('overflow-x', 'initial');
+                                             $(window).resize();
+                                    });
+                
+                
 				
 			}else if($(this).html() != 'Home' && homeActive == true){
 				// Van Home naar iets anders
 				currentPage = $(this).html();
+                currentPos = $(this).position().left;
 				$('#jumbotron').animate({'height': '-='+pxChange+'px'}, 750, "linear", function(){ 
 					//done 				
 					homeActive = false;
@@ -62,11 +96,65 @@ $(document).ready( function() {
 				slideshowHeight = $('#jumbotron').height() - pxChange;
 				points[0] = pos;
 				points[2] = pos + width;
+                $('#logo img').css('left', $("#logo img").offset().left);
+                $('#logo img').css('right', 'auto');
+                $('#logo img').dequeue().animate({ 'left' : '3%'}, 750);
+                
+                //Animate page content
+                $('body').css('overflow-x', 'hidden');
+                $('#Home').dequeue()
+                                    .animate({'left' : '-100%',
+                                             'top' : slideshowHeight + $('#mainnav').outerHeight(true)
+                                             },750);
+                $('.nextpage').css('left', '100%')
+                                    .css('top', $('#Home').css('top'))
+                                    .dequeue()
+                                    .animate({'left' : '0',
+                                             'top' : slideshowHeight + $('#mainnav').outerHeight(true)
+                                             },800, function() {
+                                             $('.active-page').remove();
+                                             $(this).addClass('active-page').removeClass('nextpage');
+                                             $('body').css('overflow-x', 'initial');
+                                             $(window).resize();
+                                    });
 
-			}else{
+			} else if($(this).html() != currentPage) {
 				currentPage = $(this).html();
 				slideshowHeight = $('#jumbotron').height();
+                
+                if($(this).position().left > currentPos) {
+                    //Animate page-content to left
+                    currentPos = $(this).position().left;
+                    $('body').css('overflow-x', 'hidden');
+                    $('.active-page').dequeue()
+                                        .animate({'left' : '-100%'},750);
+                    $('.nextpage').css('left', '+100%')
+                                        .css('top', slideshowHeight + $('#mainnav').outerHeight(true))
+                                        .dequeue()
+                                        .animate({'left' : '0'},750, function() {
+                                                 $('.active-page').remove();
+                                                 $(this).addClass('active-page').removeClass('nextpage');
+                                                 $('body').css('overflow-x', 'initial');
+                                                 $(window).resize();
+                                        });
+                } else if($(this).position().left < currentPos) {
+                    //Animate page-content to right
+                    $('body').css('overflow-x', 'hidden');
+                    currentPos = $(this).position().left;
+                     $('.active-page').dequeue()
+                                        .animate({'left' : '100%'},750);
+                     $('.nextpage').css('left', '-100%')
+                                        .css('top', slideshowHeight + $('#mainnav').outerHeight(true))
+                                        .dequeue()
+                                        .animate({'left' : '0'},750, function() {
+                                                 $('.active-page').remove();
+                                                 $(this).addClass('active-page').removeClass('nextpage');
+                                                 $('body').css('overflow-x', 'initial');
+                                                 $(window).resize();
+                                        });
+                }
 			}
+            
 			// Set SVG animation data
 			var balkHeight = ($(document).height()-slideshowHeight)*1000/$(document).height();
 			$('#rect-anim-height').attr('to', balkHeight);
@@ -97,7 +185,7 @@ $(document).ready( function() {
 			animationToCheck.beginElement();
 
 
-			$(window).resize();
+			//$(window).resize();
 			setTimeout(function(){
 				AnimateActive = false;
 				$("#rect-anim-width").attr("from", width);

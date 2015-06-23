@@ -67,7 +67,11 @@ $(window).load( function() {
         //Set navigation and jumbotron height
         $('#mainnav').css('top', slideshowHeight);
         $('#jumbotron').css('height', slideshowHeight);
+        $('.page').css('top', slideshowHeight + $('#mainnav').outerHeight(true));
         
+        //Set slideshow image te the left
+        slideSwitch('current');
+
         //SVG balken correction
         var balkHeight = ($(document).height()-slideshowHeight)*1000/$(document).height();
         $('#rect').attr('height', balkHeight);
