@@ -67,7 +67,12 @@ $(document).ready( function() {
             //Load new page
             if($(this).html() != currentPage){
 				$('#mainpage').append("<div id='"+$(this).html()+"' class='nextpage page'></div>");
-				$('.nextpage').load($(this).html()+'.php');
+				var e = $(this).html();
+				$('.nextpage').load($(this).html()+'.php', function(){ 
+					if(e == "Contact"){
+						contactLoad();
+					}
+				});
             }
             
 			if($(this).html() == 'Home' && homeActive != true){

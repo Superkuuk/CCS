@@ -9,6 +9,7 @@ body, html {
 	background-attachment:fixed;
 	background-size: cover;
 	background-repeat: no-repeat;
+	line-height: 1.7em;
 }
 
 /* Slide show */
@@ -85,7 +86,7 @@ Logo verhouding: 1500x887
 .page {
     position: absolute;
     top: calc(58% + 26pt + 2%); /* Top of #mainnav + height of text + padding*2 */
-    margin: 8% 8% 8% 8%;
+    margin: 4% 8% 8% 8%;
     width: calc(100% - 16%); /* Full page width minus margin at both sides. Is nodig omdat anders de animatie niet goed werkt.*/ 
     overflow-y: hidden;
     
@@ -174,13 +175,32 @@ footer {
  */
 #contact_left {
 	width: 46%;
-	background-color: grey;
 	float: left;
 }
 
 #contact_right {
 	width: 46%;
-	background-color: grey;
-	height: 200px;
-	float: right;
+	float: left;
+	position: absolute;
+	right: -80px;
+}
+
+#contacts_container {
+	margin-left: -1%;
+	margin-top: 8%;
+	margin-bottom: calc(7*1.7em);
+	width: 102%;
+	float: left;
+}
+
+.profile {
+	float: left;
+	margin: 1%;
+}
+
+.profile div {
+	line-height: 1.7em;
+	margin-top: calc(-5.2 * 1.7em);
+	position: absolute;
+	width: 100%;
 }
