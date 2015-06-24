@@ -17,7 +17,7 @@
     <header id="jumbotron"> <!-- foto, logo, etc. -->
             <?php include('header.php'); ?>
     </header>
-
+		
 	<svg id="svgBalkBoven" viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">	
 		<polygon id="poly" fill="rgba(255,255,255,0.5)" points="240,0 300,0 60,250 0,250" />
 		<rect id="rect" x="0" y="250" width="60" height="750" fill="rgba(236,33,39,0.2)"/>
