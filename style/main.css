@@ -2,15 +2,13 @@
 
 body, html {
 	font-family: 'Century Gothic', sans-serif;
-    height:100%;
     min-height:100%;
     min-width: 700px;
     margin:0;
     padding:0;
 	background-attachment:fixed;
 	background-size: cover;
-	background-repeat: no-repeat;	
-	position: relative
+	background-repeat: no-repeat;
 }
 
 /* Slide show */
@@ -64,6 +62,7 @@ Logo verhouding: 1500x887
     width: 100%;
     top: 58%;
 }
+
 #mainnav ul {
     margin: 0;
     padding: 0;
@@ -88,6 +87,7 @@ Logo verhouding: 1500x887
     top: calc(58% + 26pt + 2%); /* Top of #mainnav + height of text + padding*2 */
     margin: 8% 8% 8% 8%;
     width: calc(100% - 16%); /* Full page width minus margin at both sides. Is nodig omdat anders de animatie niet goed werkt.*/ 
+    overflow-y: hidden;
     
 /* 	Columns voor de normale opmaak. Aangezien we nu opmaak hebben per pagina, schakel ik dit uit.
     -webkit-columns: 2;
@@ -104,6 +104,10 @@ hr {
     width: 100%;
     height: 0px;
     padding: 0; margin: 0;
+/*    De border van de hr zorgt voor een overflow in de x-richting*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 
@@ -129,17 +133,37 @@ footer {
 
 /* Info */
 
+#info-read-more-block {
+    display: inline-block;
+}
+#info-left {
+    position: absolute;
+    right: auto;
+    top: 8%;
+    left: 8%;
+    width: 39%;
+}
+#info-right {
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    width: 39%;
+}
+#info-expand {
+    
+}
 #Info p {
     margin: 0; padding: 0;
-    float: left;
-    clear: left;
-    width: 45%;
+    width: 100%;
 }
 #Info img {
-    float: left;
-    clear: right;
-    width: 45%;
-    margin-left: 8%;
+    display: block;
+    float: right;
+    clear: both;
+    width: 100%;
+}
+#info-expand {
+    font-weight: bolder;
 }
 
 
