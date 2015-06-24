@@ -95,9 +95,7 @@
     </nav>
     
     <div id="mainpage">
-        <div id="home" class="page active-page">
                 <!--Pagina inhoud-->
-     	</div>
     </div>
     
 

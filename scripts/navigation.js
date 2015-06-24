@@ -8,7 +8,8 @@ $(document).ready( function() {
 	pxChange = $('body').height() * 0.15;
     var currentPos = 0;
 	
-    $('.page').load(currentPage+'.php');
+    $('#mainpage').append("<div id='"+currentPage+"' class='page active-page'></div>");
+    $('.active-page').load(currentPage+'.php');
     
     
 	$("#mainnav ul li").click(function(){
