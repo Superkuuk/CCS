@@ -1,3 +1,118 @@
+<!-- 
+Jelle! Kan jij op de info pagina nog zetten dat 1 power supply 20 wristbands op kan laden?
+Dit kan gewoon in een blokje tekst oid. Succes!
+ -->
+
+
+<div id="conf_container">
+	<div id="conf_1" class="conf">
+		<div class="conf_nr" style="color:rgba(255,123,125,0.5)">
+			1
+		</div>
+		<div class="cont_inf">
+			<span style="font-size:1.3em">Little</span><br>
+			wristband: 80<br>
+			power supply: 4<br>
+			routers: 6<br>
+			incl. guidebook<br>
+			price: €6000
+		</div>
+	</div>
+
+	<div id="conf_1" class="conf">
+		<div class="conf_nr" style="color:rgba(125,233,12,0.5)">
+			2
+		</div>
+		<div class="cont_inf">
+			<span style="font-size:1.3em">Small</span><br>
+			wristband: 140<br>
+			power supply: 7<br>
+			routers: 11<br>
+			incl. guidebook<br>
+			price: €11000
+		</div>
+	</div>
+
+	<div id="conf_1" class="conf">
+		<div class="conf_nr" style="color:rgba(11,43,244,0.5)">
+			3
+		</div>
+		<div class="cont_inf">
+			<span style="font-size:1.3em">Middle</span><br>
+			wristband: 200<br>
+			power supply: 10<br>
+			routers: 15<br>
+			incl. guidebook<br>
+			price: €15500
+		</div>
+	</div>
+
+	<div id="conf_1" class="conf">
+		<div class="conf_nr" style="color:rgba(180,11,55,0.5)">
+			4
+		</div>
+		<div class="cont_inf">
+			<span style="font-size:1.3em">Big</span><br>
+			wristband: 240<br>
+			power supply: 12<br>
+			routers: 19<br>
+			incl. guidebook<br>
+			price: €19000
+		</div>
+	</div>
+
+	<div id="conf_1" class="conf">
+		<div class="conf_nr" style="color:rgba(90,90,120,0.5)">
+			5
+		</div>
+		<div class="cont_inf">
+			<span style="font-size:1.3em">Large</span><br>
+			wristband: 280<br>
+			power supply: 14<br>
+			routers: 22<br>
+			incl. guidebook<br>
+			price: €22000
+		</div>
+	</div>
+
+	<div id="conf_1" class="conf">
+		<div class="conf_nr" style="color:rgba(0,222,222,0.5)">
+			A
+		</div>
+		<div class="cont_inf">
+			<span style="font-size:1.3em">Extra wristbands</span><br>
+			wristband: 20<br>
+			incl. guidebook<br>
+			price: €1750
+		</div>
+	</div>
+
+	<div id="conf_1" class="conf">
+		<div class="conf_nr" style="color:rgba(241,22,11,0.5)">
+			B
+		</div>
+		<div class="cont_inf">
+			<span style="font-size:1.3em">Extra power supply</span><br>
+			power supply: 1<br>
+			incl. guidebook<br>
+			price: €37.5
+		</div>
+	</div>
+
+	<div id="conf_1" class="conf">
+		<div class="conf_nr" style="color:rgba(255,255,33,0.5)">
+			C
+		</div>
+		<div class="cont_inf">
+			<span style="font-size:1.3em">Extra routers</span><br>
+			routers: 1<br>
+			incl. guidebook<br>
+			price: €110
+		</div>
+	</div>
+
+</div>
+
 <div id="info-read-more-block">
     <div id="info-left" style="overflow-y: hidden">
         <p class="info-row-01">
@@ -19,7 +134,27 @@
 </div>
 
 	<script>
-        
+		$(".conf").mouseenter(function(){
+			$(this).find( ".cont_inf" ).dequeue().animate({
+				'top': (2*1.7)+'em',
+				'opacity': 1
+			}, 300, function(){});
+			$(this).find( ".conf_nr" ).dequeue().animate({
+				'opacity': 0.3
+			}, 300, function(){});
+		});
+	
+		$(".conf").mouseleave(function(){
+			$(this).find( ".cont_inf" ).dequeue().animate({
+				'top': '-1.7em',
+				'opacity': 0
+			}, 300, function(){});
+			$(this).find( ".conf_nr" ).dequeue().animate({
+				'opacity': 1
+			}, 300, function(){});
+		});    
+
+
             // Zelf in te vullen:
             var hoogte_block;	// wordt nog afgerond naar het meest naarbije getal wat goed uitkomt met line-height
             var read_more_text_open = "+";

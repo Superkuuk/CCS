@@ -24,6 +24,22 @@ function contactLoad(){
 			$(this).find("video").attr('height', height);
 		});	
 	}
+}
 
+function configurationLoad(){
+	if($(window).width() < 1035){
+		var width = ($(window).width() * 0.81 / 4);
 
+		// 8%[w]1%[w]1%[w]1%[w]8%
+		$(".conf").each(function(i){
+			$(this).css('width', width);
+		});
+	}else{
+		var width = ($(window).width() * 0.77 / 8);
+
+		// 8%[w]1%[w]1%[w]1%[w]1%[w]1%[w]1%[w]1%[w]8%
+		$(".conf").each(function(i){
+			$(this).css('width', width);
+		});	
+	}
 }

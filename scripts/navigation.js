@@ -71,6 +71,8 @@ $(document).ready( function() {
 				$('.nextpage').load($(this).html()+'.php', function(){ 
 					if(e == "Contact"){
 						contactLoad();
+					}else if(e == "Info"){
+						configurationLoad();
 					}
 				});
             }
@@ -180,21 +182,6 @@ $(document).ready( function() {
                 }
 			}
             
-			// Set SVG animation data
-// 			var balkHeight = ($(document).height()-slideshowHeight)*1000/$(document).height();
-// 			$('#rect-anim-height').attr('to', balkHeight);
-// 			$('#rect-anim-y').attr('to', 1000-balkHeight+2); 					
-// 
-// 			var yposRect = parseInt($('#rect').attr('y'));
-// 			points[1] = 0;
-// 			points[3] = 0;
-// 			points[4] = (pos + width);
-// 			points[5] = yposRect;
-// 			points[6] = pos;
-// 			points[7] = yposRect;
-
-// 			$("#poly-anim").attr("to", points[0] + "," + points[1] + " " + points[2] + "," + points[3] + " " + points[4] + "," + points[5] + " " + points[6] + "," + points[7]);
-
 			// SVG animation
 			animationToCheck = document.getElementById("rect-anim-y");
 			animationToCheck.beginElement();

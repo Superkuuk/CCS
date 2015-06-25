@@ -5,7 +5,7 @@
 	CCS
 </title>
     <script src="scripts/jquery-1.11.3.min.js" type="text/javascript"></script>
-    <script src="scripts/contact.js" type="text/javascript"></script>
+    <script src="scripts/pagefunctions.js" type="text/javascript"></script>
     <script src="scripts/navigation.js" type="text/javascript"></script>
     <script src="scripts/resize.js" type="text/javascript"></script>
     

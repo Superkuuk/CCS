@@ -141,13 +141,13 @@ footer {
 #info-left {
     position: absolute;
     right: auto;
-    top: 8%;
+    top: 40%;
     left: 8%;
     width: 39%;
 }
 #info-right {
     position: absolute;
-    top: 8%;
+    top: 40%;
     right: 8%;
     width: 39%;
 }
@@ -168,6 +168,23 @@ footer {
     font-weight: bolder;
 }
 
+.conf {
+	float: left;
+	margin: 0.5%;
+	cursor: pointer;
+}
+
+.conf_nr {
+	font-size: calc(4*1.7em);
+	margin-top: 0.3em;
+}
+
+.cont_inf {
+	position: absolute;
+	line-height: 1.7em;
+	top: -1.7em;
+	opacity: 0;
+}
 
 /* Contacts */
 
