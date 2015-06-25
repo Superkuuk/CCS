@@ -9,9 +9,9 @@
 
 <div id="contact_left">
 	<img src="images/logoz.png" width='30%' style="float:left;">
-	<div style="float:right;">
-		<span style="font-size: 2em">Communication Control System</span>
-		<br>
+	<div style="float:left;">
+		<span style="font-size: 1.35em">Communication Control System</span>
+		<br><br>
 		De Horst 2<br>
 		7522 NB Enschede<br>
 		The Netherlands
@@ -19,7 +19,7 @@
 </div>
 
 <div id="contact_right">
-	<img src="images/horst.jpg" width="85%">
+	<img src="images/horst.jpg" width="100%">
 </div>
 
 <div id="contacts_container">
@@ -105,14 +105,20 @@
 <script>
 	$(".profile").mouseenter(function(){
 		$(this).find( "video" ).get(0).play();
-		$(this).find( "div" ).dequeue().animate({'margin-top': 0}, 300, function(){});
+		$(this).find( "div" ).dequeue().animate({
+			'margin-top': 0,
+			'opacity': 1
+		}, 300, function(){});
 	});
 	
 	$(".profile").mouseleave(function(){
 		var delay = 6000 - parseInt( 1000 * $(this).find( "video" ).get(0).currentTime);
 		var e = $(this).find( "div" );
 		setTimeout(function(){
-			e.dequeue().animate({'margin-top': (-5.2*1.7)+'em'}, 300, function(){});
+			e.dequeue().animate({
+				'margin-top': (-5.2*1.7)+'em',
+				'opacity': 0
+			}, 300, function(){});
 		}, delay);
 	});
 </script>

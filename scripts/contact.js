@@ -1,10 +1,12 @@
 function contactLoad(){
 
 	if($(window).width() < 1035){
-		var width = ($(window).width() * 0.72 / 3);
+		var width = ($(window).width() * 0.96 / 3);
 		var height = width * 280 / 158;
 		// h : w
 		//280:158
+		
+		// [w]2%[w]2%[w]2%[w]2[w]2[w]
 		$(".profile").each(function(i){
 			$(this).find("video").attr('width', width);
 			$(this).find("video").attr('height', height);
@@ -13,7 +15,7 @@ function contactLoad(){
 			}
 		});
 	}else{
-		var width = ($(window).width() * 0.72 / 6);
+		var width = ($(window).width() * 0.76 / 6);
 		var height = width * 280 / 158;
 		// h : w
 		//280:158

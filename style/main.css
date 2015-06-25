@@ -89,6 +89,7 @@ Logo verhouding: 1500x887
     margin: 4% 8% 8% 8%;
     width: calc(100% - 16%); /* Full page width minus margin at both sides. Is nodig omdat anders de animatie niet goed werkt.*/ 
     overflow-y: hidden;
+    overflow-x: hidden;
     
 /* 	Columns voor de normale opmaak. Aangezien we nu opmaak hebben per pagina, schakel ik dit uit.
     -webkit-columns: 2;
@@ -182,14 +183,15 @@ footer {
 	width: 46%;
 	float: left;
 	position: absolute;
-	right: -80px;
+	right: 0;
+	margin-bottom: 8%;
 }
 
 #contacts_container {
 	margin-left: -1%;
-	margin-top: 8%;
+	margin-top: 18%;
 	margin-bottom: calc(7*1.7em);
-	width: 102%;
+	width: 103%;
 	float: left;
 }
 
@@ -202,5 +204,6 @@ footer {
 	line-height: 1.7em;
 	margin-top: calc(-5.2 * 1.7em);
 	position: absolute;
-	width: 100%;
+	opacity: 0;
+	z-index: -1;
 }
