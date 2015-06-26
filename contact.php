@@ -14,12 +14,13 @@
 		<br><br>
 		De Horst 2<br>
 		7522 NB Enschede<br>
-		The Netherlands
+		The Netherlands<br>
+        <a href="mailto:info@ccs.nl">info@ccs.nl</a>
 	</div>
 </div>
 
 <div id="contact_right">
-	<img src="images/horst.jpg" width="100%">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6225.4721588538!2d6.8615028311265105!3d52.2370765932524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b813dce22a9191%3A0x1243a2a34f1cc06d!2sHorst%2C+University+of+Twente%2C+De+Horst+2%2C+7522+Enschede!5e1!3m2!1sen!2snl!4v1435239825716" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
 
 <div id="contacts_container">
@@ -30,7 +31,8 @@
 		</video>
 		<div>
 		Jelle Klaver<br>
-		Chair(wo)man<br><br>
+		Chair(wo)man<br>
+        s1499157<br><br>
 		+31(0)678293751<br>
 		j.klaver@ccs.nl<br>
 		</div>
@@ -43,7 +45,8 @@
 		</video>
 		<div>
 		Tessa Fij<br>
-		Secretary<br><br>
+		Secretary<br>
+        s1444611<br><br>
 		+31(0)682756295<br>
 		t.fij@ccs.nl<br>
 		</div>
@@ -56,7 +59,8 @@
 		</video>
 		<div>
 		Janneke Huijben<br>
-		Treasurer<br><br>
+		Treasurer<br>
+        s1438921<br><br>
 		+31(0)637561937<br>
 		j.huijben@ccs.nl<br>
 		</div>
@@ -69,7 +73,8 @@
 		</video>
 		<div>
 		Rutger Frieswijk<br>
-		Technical Engineer<br><br>
+		Technical Engineer<br>
+        s1499025<br><br>
 		+31(0)659251436<br>
 		r.frieswijk@ccs.nl<br>
 		</div>
@@ -82,7 +87,8 @@
 		</video>
 		<div>
 		Jessica Sennema<br>
-		Developer<br><br>
+		Developer<br>
+        s1487000<br><br>
 		+31(0)616385602<br>
 		j.sennema@ccs.nl<br>
 		</div>
@@ -95,7 +101,8 @@
 		</video>
 		<div>
 		Shannon Cleijne<br>
-		Creative Designer<br><br>
+		Creative Designer<br>
+        s1460528<br><br>
 		+31(0)601937561<br>
 		s.cleijne@ccs.nl<br>
 		</div>

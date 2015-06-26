@@ -158,7 +158,7 @@ footer {
     margin: 0; padding: 0;
     width: 100%;
 }
-#Info img {
+#info-right img {
     display: block;
     float: right;
     clear: both;
@@ -178,6 +178,17 @@ footer {
 	font-size: calc(4*1.7em);
 	margin-top: 0.3em;
 }
+.conf_nr img {
+    margin-top: -25%;
+    width: 100%;
+}
+.conf_nr img.info_small {
+    width: 50%;
+    margin-left: 25%;
+}
+.cont_inf span {
+    font-size: 1.5em;
+}
 
 .cont_inf {
 	position: absolute;
@@ -185,6 +196,43 @@ footer {
 	top: -1.7em;
 	opacity: 0;
 }
+
+/* Events */
+
+#event-read-more-block {
+    display: inline-block;
+}
+#event-left {
+    position: absolute;
+    right: auto;
+    top: 40%;
+    left: 8%;
+    width: 39%;
+}
+#event-right {
+    position: absolute;
+    top: 40%;
+    right: 8%;
+    width: 39%;
+}
+#event-expand {
+    
+}
+#Event p {
+    margin: 0; padding: 0;
+    width: 100%;
+}
+#event-right img {
+    display: block;
+    float: right;
+    clear: both;
+    width: 100%;
+}
+#event-expand {
+    font-weight: bolder;
+}
+
+
 
 /* Contacts */
 
@@ -198,10 +246,14 @@ footer {
 
 #contact_right {
 	width: 46%;
+    height: 35%;
 	float: left;
 	position: absolute;
 	right: 0;
 	margin-bottom: 8%;
+}
+#contact_right iframe {
+    float: right;
 }
 
 #contacts_container {
