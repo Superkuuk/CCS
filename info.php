@@ -128,8 +128,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
         </p>
     </div>
     <div id="info-right">
-        <img id="info-img01" class="info-row-01" src="images/product_01.jpg" alt="Hier komt een afbeelding van ons product.">
-        <img id="info-img-02" class="info-row-02" src="images/product_01.jpg" alt="Hier komt een afbeelding van een detail van ons product.">
+        <img id="info-img01" class="info-row-01" src="images/product_01.png" alt="Hier komt een afbeelding van ons product.">
+        <img id="info-img02" class="info-row-02" src="images/product_01.png" alt="Hier komt een afbeelding van een detail van ons product.">
     </div>
 </div>
 
@@ -163,7 +163,7 @@ Dit kan gewoon in een blokje tekst oid. Succes!
             var real_height;
             var expanded = false;
 
-            $('#info-img01, #info-img02').load( function() {
+            $('#info-img01').load( function() {
             //Set height of rows equal
             $('p.info-row-01').height($('img.info-row-01').height());
             $('p.info-row-02').height($('img.info-row-02').height());

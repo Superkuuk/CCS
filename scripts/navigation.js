@@ -38,7 +38,6 @@ $(document).ready( function() {
 			
 			posy = posy/$('body').height()*1000;
 			posx = posx/$(window).width()*1000 - 0.5 * margin;			
- 			console.log("1: "+posx + ","+posy+"|" + width);
 			
 			// lb, rb, ro, lo
 			var points = [posx, 0, posx + width, 0, posx + width, posy, posx, posy];
@@ -200,7 +199,6 @@ $(document).ready( function() {
 			//$(window).resize();
 			setTimeout(function(){
 				AnimateActive = false;
- 				console.log("2: "+posx + ","+posy+"|" + width);
  				$("#rect-anim-width").attr("from", width);
  				$("#rect-anim-pos").attr("from", posx);
  				$('#rect-anim-y').attr('from', posy); 

@@ -141,13 +141,13 @@ footer {
 #info-left {
     position: absolute;
     right: auto;
-    top: 40%;
+    top: 30%;
     left: 8%;
     width: 39%;
 }
 #info-right {
     position: absolute;
-    top: 40%;
+    top: 30%;
     right: 8%;
     width: 39%;
 }
@@ -205,13 +205,13 @@ footer {
 #event-left {
     position: absolute;
     right: auto;
-    top: 40%;
+    top: 8%;
     left: 8%;
     width: 39%;
 }
 #event-right {
     position: absolute;
-    top: 40%;
+    top: 8%;
     right: 8%;
     width: 39%;
 }
