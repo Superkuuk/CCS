@@ -1,4 +1,6 @@
- @font-face { font-family: "Slim Joe"; src: url('Slim Joe/Slim Joe.otf'); } 
+ @font-face { font-family: "Slim Joe"; src: url('slim_joe/slim_joe.otf'); } 
+ @font-face { font-family: "Big John"; src: url('big_john/big_john.otf'); } 
+
 
 body, html {
 	font-family: 'Century Gothic', sans-serif;
@@ -10,6 +12,9 @@ body, html {
 	background-size: cover;
 	background-repeat: no-repeat;
 	line-height: 1.7em;
+}
+p {
+    margin: 0; padding: 0;
 }
 
 /* Slide show */
@@ -56,7 +61,6 @@ Logo verhouding: 1500x887
     cursor: pointer;
 }
 
-
 /* Navigation menu */
 #mainnav {
     position: absolute;
@@ -87,9 +91,9 @@ Logo verhouding: 1500x887
     position: absolute;
     top: calc(58% + 26pt + 2%); /* Top of #mainnav + height of text + padding*2 */
     margin: 4% 8% 8% 8%;
-    width: calc(100% - 16%); /* Full page width minus margin at both sides. Is nodig omdat anders de animatie niet goed werkt.*/ 
-    overflow-y: hidden;
-    overflow-x: hidden;
+    width: calc(100% - 8% - 8%); /* Full page width minus margin at both sides. Is nodig omdat anders de animatie niet goed werkt.*/ 
+/*    overflow-y: hidden;
+    overflow-x: hidden;*/
     
 /* 	Columns voor de normale opmaak. Aangezien we nu opmaak hebben per pagina, schakel ik dit uit.
     -webkit-columns: 2;
@@ -133,21 +137,43 @@ footer {
 }
 
 
+/* Home */
+#home-left {
+    postion: absolute;
+    right: auto;
+    width: 39%;
+    left: 8%;
+}
+#home-right {
+    position: absolute;
+    left: auto;
+    right: 8%;
+    width: 39%;
+    top: 0;
+}
+
+#home-right h2 {
+    margin: 0; padding: 0;
+    font-family: "Big John";
+    font-size: 20pt;
+    top: 0;
+}
+
+
 /* Info */
 
 #info-read-more-block {
+    margin-top: 8%;
     display: inline-block;
 }
 #info-left {
     position: absolute;
     right: auto;
-    top: 30%;
     left: 8%;
     width: 39%;
 }
 #info-right {
     position: absolute;
-    top: 30%;
     right: 8%;
     width: 39%;
 }
@@ -171,7 +197,6 @@ footer {
 .conf {
 	float: left;
 	margin: 0.5%;
-	cursor: pointer;
 }
 
 .conf_nr {
@@ -205,13 +230,14 @@ footer {
 #event-left {
     position: absolute;
     right: auto;
-    top: 8%;
     left: 8%;
     width: 39%;
 }
+#event-left p {
+    margin-top: 0;
+}
 #event-right {
     position: absolute;
-    top: 8%;
     right: 8%;
     width: 39%;
 }

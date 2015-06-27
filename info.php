@@ -116,20 +116,24 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 <div id="info-read-more-block">
     <div id="info-left" style="overflow-y: hidden">
         <p class="info-row-01">
-            Deze informatie  meer info meer info meer info is nog veel leuker. 
-            Veel plezier met het maken van de website Rutger en Jelle. 
-            Voor vragen weten jullie ons te vinden!
+            The communication control system is a product to enhance the safety at events. It is a wrist band that allows the user to contact other employees at the event when there is an emergency. 
         </p>
             
         <p class="info-row-02">
-            Hier komt de extra informatie wanneer je op het plusje drukt met een leuke extra fotoooo. 
-            Normaal gesproken zou de er onder de afbeelding eenzelfde ruimte zijn als de rode streepjes aangeven. 
-            Maar deze pagina heeft een beperkte grootte
+            The wrist band should be worn diagonally around the wrist because this makes it easier for the user to read messages that appear on the screen, while it also allows the user to wear and use the product without disabling the movements of the hand. 
+        </p>        
+        <p class="info-row-03">
+            When something goes wrong the user can activate the screen and contact one of the three services; first aid, fire fighters and security guards. It depends on the situation whether the alarm number should be called or whether the people working at the event can simply help. To know how serious the emergency is, the user has to answer questions about the intensity of the emergency. He has to decide how many people are needed to help. The wrist band then contacts the amount of people needed according to the information it received from the user. 
+        </p>        
+        <p class="info-row-03">
+            If you want to know more about the working of the product, click <a href="#" title="User Manual">here</a> (not yet available) to download the user manual.<br>
+            Please note: one power supply unit will be able to charge 20 wristbands at a time.
         </p>
     </div>
     <div id="info-right">
         <img id="info-img01" class="info-row-01" src="images/product_01.png" alt="Hier komt een afbeelding van ons product.">
         <img id="info-img02" class="info-row-02" src="images/product_01.png" alt="Hier komt een afbeelding van een detail van ons product.">
+        <img id="info-img03" class="info-row-03" src="images/product_01.png" alt="Hier komt een afbeelding van een detail van ons product.">
     </div>
 </div>
 
@@ -162,34 +166,42 @@ Dit kan gewoon in een blokje tekst oid. Succes!
         
             var real_height;
             var expanded = false;
+        
+            var $images = $('#info-right img');
+            var loaded_images_count = 0;
+        
+              $images.load(function(){
+                loaded_images_count++;
 
-            $('#info-img01').load( function() {
-            //Set height of rows equal
-            $('p.info-row-01').height($('img.info-row-01').height());
-            $('p.info-row-02').height($('img.info-row-02').height());
-            $('.info-row-02').css('margin-top', $('#mainnav').outerHeight());
-            $('#info-read-more-block').height($('#info-left').height() * 1.35);
-            $('#info-read-more-block').width($('#info-left').outerWidth(true) + $('#info-right').outerWidth(true));	
-            
+                if (loaded_images_count == $images.length) {
+                    //Set height of rows equal
+                    $('p.info-row-01').height($('img.info-row-01').height());
+                    $('p.info-row-02').height($('img.info-row-02').height());
+                    $('.info-row-02').css('margin-top', $('#mainnav').outerHeight());
+                    $('#info-read-more-block').height($('#info-left').height());
+                    $('#info-read-more-block').width($('#info-left').outerWidth(true) + $('#info-right').outerWidth(true));	
 
-            // automated calculated terminated
-            var fontSize = $("#info-read-more-block").css('font-size');
-            var lineHeight = Math.floor(parseInt(fontSize.replace('px','')) * 1.5);
-            var expanded = false;
-            var hoogte_block = $('#info-img01').height();
 
-            hoogte_block = Math.floor(hoogte_block / lineHeight) * lineHeight;
-            console.log($('#info-read-more-block').height());
-            if($("#info-read-more-block").height() > hoogte_block){
-                $("#info-left, #info-right").css({
-                    'height': hoogte_block,
-                    'overflow': 'hidden'
-                });
+                    // automated calculated terminated
+                    var fontSize = $("#info-read-more-block").css('font-size');
+                    var lineHeight = Math.floor(parseInt(fontSize.replace('px','')) * 1.5);
+                    var expanded = false;
+                    var hoogte_block = $('#info-img01').height();
 
-                // Pas span aan naar gewenste opmaak
-                $("#info-left .info-row-01").append('<span id="info-expand" style="cursor: pointer; color: rgba(109,207,246,1)" onclick="readMore();">'+read_more_text_open+'</span>');
-            }
-        });
+                    hoogte_block = Math.floor(hoogte_block / lineHeight) * lineHeight;
+                    console.log($('#info-read-more-block').height());
+                    if($("#info-read-more-block").height() > hoogte_block){
+                        $("#info-left, #info-right").css({
+                            'height': hoogte_block,
+                            'overflow': 'hidden'
+                        });
+
+                        // Pas span aan naar gewenste opmaak
+                        $("#info-left .info-row-01").append('<span id="info-expand" style="cursor: pointer; color: rgb(57,181,75)" onclick="readMore();">'+read_more_text_open+'</span>');
+                        $('footer').css('top', $('.page').offset().top + $('.page').outerHeight(true));
+                    }
+                }
+              });
         
 
     	
@@ -200,11 +212,11 @@ Dit kan gewoon in een blokje tekst oid. Succes!
                     'height': real_height+'px'
                 }, 500, function(){
                     // animation done
-                    $("#info-left .info-row-02").append('<span id="info-expand" style="cursor: pointer; color: rgba(109,207,246,1)" onclick="readMore();"></span>');
+                    $("#info-left .info-row-03").append('<span id="info-expand" style="cursor: pointer; color: rgb(57,181,75)" onclick="readMore();"></span>');
                     $("#info-expand").html(read_more_text_closed);
                     expanded = true;
                 });
-                $('body, html').animate({scrollTop: ($('#info-read-more-block').offset().top + $('#info-read-more-block').outerHeight(true)) - $(window).outerHeight(true) + 75}, 500);
+                $('body, html').animate({scrollTop: $('p.info-row-02').offset().top - 50}, 500);
                 $('#info-expand').remove();
             }else{
                 hoogte_block = $('#info-img01').height();
@@ -213,7 +225,7 @@ Dit kan gewoon in een blokje tekst oid. Succes!
                 }, 500, function(){
                     // animation done
                     $('#info-expand').remove();
-                    $("#info-left .info-row-01").append('<span id="info-expand" style="cursor: pointer; color: rgba(109,207,246,1)" onclick="readMore();"></span>');
+                    $("#info-left .info-row-01").append('<span id="info-expand" style="cursor: pointer; color: rgb(57,181,75)" onclick="readMore();"></span>');
                     $("#info-expand").html(read_more_text_open);
                     expanded = false;
                 });
