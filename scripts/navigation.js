@@ -107,8 +107,7 @@ $(document).ready( function() {
                                              $(this).addClass('active-page').removeClass('nextpage');
                                              $('body').css('overflow-x', 'initial');
                                              $(window).resize();
-                                    });
-                
+                                    });                
                 
 				
 			}else if($(this).html() != 'Home' && homeActive == true){
@@ -143,6 +142,7 @@ $(document).ready( function() {
                                              $('body').css('overflow-x', 'initial');
                                              $(window).resize();
                                     });
+                $('footer').animate({'top': 4000}, 750);
 
 			} else if($(this).html() != currentPage) {
 				currentPage = $(this).html();
@@ -214,7 +214,7 @@ $(document).ready( function() {
 				}else{
 					$("#rect-anim-color").attr("from", "rgba(109,207,246,0.25)");			
 				}
-			}, 750);
+			}, 750);            
 		}
 	});
 });

@@ -40,8 +40,13 @@ $(window).load( function() {
 	
 		var points = [posx + width * 2.5, 0, posx + width * 3.5, 0, posx + width, posy, posx, posy];
 		$("#poly-anim").attr("from", points[0] + "," + points[1] + " " + points[2] + "," + points[3] + " " + points[4] + "," + points[5] + " " + points[6] + "," + points[7]);
-		
-    $(window).resize( function() {
+    
+/*      
+        Onderstaande gedeelte verplaatst uit resize naar load, 
+        omdat deze niet werkte voor een resize en juist bugs gaf. 
+        Hij moet alleen wel onload worden gedraaid, 
+        want anders staat de balk niet goed bij home.
+*/
         $('#svgBalkBoven').attr('height', $(document).height()+'px' );
       
  		// Measure text width and position; set width and pos of rect
@@ -71,6 +76,9 @@ $(window).load( function() {
 		$("#rect").attr("y", posy);
 		$("#rect").attr("height", 1000-posy);       
         $("#poly").attr("points", points[0] + "," + points[1] + " " + points[2] + "," + points[3] + " " + points[4] + "," + points[5] + " " + points[6] + "," + points[7]);
+    
+		
+    $(window).resize( function() {
         
         //If homepage is selected
         if(homeActive) {
@@ -86,6 +94,8 @@ $(window).load( function() {
         $('#mainnav').css('top', slideshowHeight);
         $('#jumbotron').css('height', slideshowHeight);
         $('.page').css('top', slideshowHeight + $('#mainnav').outerHeight(true));
+        
+        $('footer').css('top', $('.page').offset().top + $('.page').outerHeight(true));
         
         //Set slideshow image te the left
         slideSwitch('current');
