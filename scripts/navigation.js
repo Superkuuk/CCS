@@ -42,7 +42,7 @@ $(document).ready( function() {
 			// lb, rb, ro, lo
 			var points = [posx, 0, posx + width, 0, posx + width, posy, posx, posy];
 
-			if(currentPage != 'Home' && html_org == 'Home'){
+			if(html_org == 'Home'){
 				// van iets anders naar Home
 				points = [posx + width * 2.5, 0, posx + width * 3.5, 0, posx + width, posy, posx, posy];
 			}
