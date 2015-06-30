@@ -176,7 +176,9 @@ Dit kan gewoon in een blokje tekst oid. Succes!
                     //Set height of rows equal
                     $('p.info-row-01').height($('img.info-row-01').height());
                     $('p.info-row-02').height($('img.info-row-02').height());
-                    $('p.info-row-03').height($('img.info-row-03').height());
+                    if($('p.info-row-03').height() < $('img.info-row-03').height()) {
+                        $('p.info-row-03').height($('img.info-row-03').height());
+                    }
                     $('p.info-row-04').height($('img.info-row-03').height());
                     $('.info-row-02').css('margin-top', $('#mainnav').outerHeight());
                     $('#info-read-more-block').height($('#info-left').height());
