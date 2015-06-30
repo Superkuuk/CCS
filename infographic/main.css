@@ -37,7 +37,7 @@ line {
     padding: 0;
 }
 
- svg {
+svg {
     clear: both;
     margin: 0;
     padding: 0;
@@ -55,18 +55,20 @@ line {
     margin-top: 6px;
     margin-bottom: 6px;
 }
+/* 
 #x-axis text:nth-child(2) {
-    margin-left: 23px;
+    margin-left: 20px;
 }
 #x-axis text:nth-child(3) {
-    margin-left: 90px;
+    margin-left: 75px;
 }
 #x-axis text:nth-child(4) {
-    margin-left: 67px;
+    margin-left: 60px;
 }
 #x-axis text:nth-child(5) {
-    margin-left: 30px;
+    margin-left: 28px;
 }
 #x-axis text:nth-child(6) {
-    margin-left: 30px;
+    margin-left: 27px;
 }
+ */
