@@ -5,7 +5,7 @@
     </div>
     <div id="home-right">
         <h2>
-            "A very awesome and catchy slogan which is longer than that was."
+            "Communicate and notify yourself and others to safety."
         </h2> 
     </div>
 </div>

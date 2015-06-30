@@ -139,8 +139,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
     </div>
     <div id="info-right">
         <img id="info-img01" class="info-row-01" src="images/product_01.png" alt="CCS - Polsbandje voor signalering">
-        <img id="info-img02" class="info-row-02" src="images/product_01.png" alt="CCS - Polsbandje gedragen.">
-        <img id="info-img03" class="info-row-03" src="images/product_01.png" alt="CCS - User Interface van het signaleringssysteem">
+        <img id="info-img02" class="info-row-02" src="images/product_dummy.png" alt="CCS - Polsbandje gedragen.">
+        <img id="info-img03" class="info-row-03" src="images/product_dummy.png" alt="CCS - User Interface van het signaleringssysteem">
     </div>
 </div>
 
