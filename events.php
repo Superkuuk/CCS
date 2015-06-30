@@ -22,9 +22,10 @@ Other events that might benefit from the communication control system are street
         <img id="event-img03" class="event-row-03" src="images/events03.jpg" alt="Hier komt een afbeelding van een festival.">
         <img id="event-img04" class="event-row-04" src="images/events04.jpg" alt="Hier komt een afbeelding van een festival.">
         <img id="event-img05" class="event-row-05" src="images/events05.jpg" alt="Hier komt een afbeelding van een festival.">
-        <div id="event-img06" class="infographic event-row-06">
+    </div>
+    <div id="event-img06" class="infographic event-row-06">
             <?php include_once('infographic/index.html'); ?>
-        </div>
+        <p style="margin-left:8%;">The data used in this infographic is dummy data. This infographic is a partly working exapmle of the one explained in the essay. </p>
     </div>
 </div>
 
@@ -51,8 +52,10 @@ Other events that might benefit from the communication control system are street
                     $('p.event-row-03').height($('img.event-row-03').height());
                     $('p.event-row-04').height($('img.event-row-04').height());
                     $('p.event-row-05').height($('img.event-row-05').height());
-                    $('#infographic').height($('img.event-row-05').height());
+                    $('#infographic').height($(this).height() * (4/5));
+                    $('#infographic, .infographic p').css('opacity', 0);
                     $('#infographic').css('margin-top', $('img.event-row-05').offset().top + $('img.event-row-05').height());
+                    $('#infographic').next('p').css('margin-top', $('#infographic').height());
                     $('.event-row-02, .event-row-03, .event-row-04, .event-row-05, .event-row-06').css('margin-top', $('#mainnav').outerHeight());
                     $('#event-read-more-block').height($('#event-right').outerHeight(true) + $('#event-img6').height());
                     $('#event-read-more-block').width($('#event-left').outerWidth(true) + $('#event-right').outerWidth(true));	
@@ -90,6 +93,7 @@ Other events that might benefit from the communication control system are street
                     $("#event-expand").html(read_more_text_closed);
                     eventExpanded = true;
                 });
+                $('#infographic, .infographic p').css('opacity',1);
                 $('body, html').animate({scrollTop: $('p.event-row-02').offset().top - 50}, 500);
                 $('#event-expand').remove();
             }else{
@@ -103,6 +107,7 @@ Other events that might benefit from the communication control system are street
                     $("#event-expand").html(read_more_text_open);
                     eventExpanded = false;
                 });
+                $('#infographic, .infographic p').css('opacity',0);
                 $('body, html').animate({scrollTop: 0}, 500);
             }
         }

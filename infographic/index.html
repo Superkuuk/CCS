@@ -6,7 +6,8 @@
     <script src="infographic/d3.min.js"></script>
 
 <script>
-$(document).ready( function() {
+$('#infographic').ready( function() {
+    $('#infographic').width($(window).width() * 0.75);
     
     //Global variables
     var dataset = [];
@@ -30,7 +31,9 @@ $(document).ready( function() {
           console.log(error);  //Log the error.
         } else {      //If no error, the file loaded correctly. Yay!
             dataset = data;
-            data.sort(function(a,b) {return a.type-b.type;});
+            data.sort(function(a,b) {
+                return a.type - b.type || b.bezoekers - a.bezoekers;
+            });
             console.log(data);
             data.forEach( function(d, i) {
                 type[i] = parseInt(d.type);
@@ -44,10 +47,11 @@ $(document).ready( function() {
     });     
     
         //Variables, feel free to change them
-        var width = $('#event-img05').width();   //Width of SVG (graph)
-        var height = width * (2/5);              //Heigth of SVG (graph)
-        var barMargin = 50;              //Space between bars
-        var verticalGraphMargin = 0;   //Space between bottom SVG and bottom of bars
+        var width = $('#infographic').outerWidth() * 0.95;   //Width of SVG (graph)
+        console.log(width);
+        var height = width * (2/5);                     //Heigth of SVG (graph)
+        var barMargin = 50;             //Space between bars
+        var verticalGraphMargin = 0;    //Space between bottom SVG and bottom of bars
         var xAxisWidth = 1;             //Thickness of the line of the x-axis (usually 1)
         var yAxisWidth = 1;             //Thickness of the line of the y-axis (usually 1)
         var verticalLabelOffset = 15;   //Vertical label offset from top of bar
@@ -58,7 +62,9 @@ $(document).ready( function() {
         var gemiddeldBezoekers = [];    //Array for average number of attendees per type
         var tempBezoekers = [];
         var maxBezoekers;
-    
+        
+        var previousBarLeft = 0;
+
         var verticalScale;
         var horizontalScale;
     
@@ -235,10 +241,15 @@ $(document).ready( function() {
         //Edit hardcoded x-axis
         d3.selectAll('.upper-bar')
         	.each(function() {
-        		var barLeft = $(this).attr('x');
-        		console.log($(this).index());
-        		$('.x-axis text:nth-child('+$(this).index()+')').css('margin-left', barLeft);
+        		var barLeft = parseInt($(this).attr('x')) - previousBarLeft - 2;
+            
+                var indexBar = $(this).index() + 2;
+                var textWidth = $('#x-axis text:nth-child('+(indexBar)+')').width(); 
+                previousBarLeft = parseInt($(this).attr('x')) + textWidth;
+                console.log(barLeft+' '+previousBarLeft+' '+textWidth);
+        		$('#x-axis text:nth-child('+indexBar+')').css('margin-left', barLeft);
         	});
+        $("#x-axis hr").width(width);
     }
     
     
@@ -332,7 +343,7 @@ $(document).ready( function() {
                     zoomedActive = true;
                     var self = this;
                     var selfIndex =  $(this).index();
-                    horizontalResize = (width - 30) / $(this).width();
+                    horizontalResize = (width - ((width / 20) *2)) / $(this).width();
                     
                     //Reduce opacity of bars which are not selected.
                     d3.selectAll('.upper-bar')
@@ -375,7 +386,7 @@ $(document).ready( function() {
                     //Add click event for returning to original state.
                     d3.selectAll('.upper-bar') 
                         .on('click', function() {
-                            alert('Return to original state');
+                            alert("Return to original state, this can yet only be done with a refres or switching pages.");
                         });
                     
                     //(Re)set text position.

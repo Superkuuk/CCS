@@ -241,9 +241,14 @@ footer {
     right: 8%;
     width: 39%;
 }
-#event-expand {
-    
+#infographic {
+    width: 600px;
+    margin-left: 8%;
 }
+.infographic {
+    width: 100%;
+}
+
 #Event p {
     margin: 0; padding: 0;
     width: 100%;
