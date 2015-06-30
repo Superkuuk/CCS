@@ -125,15 +125,14 @@ Dit kan gewoon in een blokje tekst oid. Succes!
         <p class="info-row-03">
             When something goes wrong the user can activate the screen and contact one of the three services; first aid, fire fighters and security guards. It depends on the situation whether the alarm number should be called or whether the people working at the event can simply help. To know how serious the emergency is, the user has to answer questions about the intensity of the emergency. He has to decide how many people are needed to help. The wrist band then contacts the amount of people needed according to the information it received from the user. 
         </p>        
-        <p class="info-row-03">
-            If you want to know more about the working of the product, click <a href="#" title="User Manual">here</a> (not yet available) to download the user manual.<br>
+        <p class="info-row-04">
             Please note: one power supply unit will be able to charge 20 wristbands at a time.
         </p>
     </div>
     <div id="info-right">
-        <img id="info-img01" class="info-row-01" src="images/product_01.png" alt="Hier komt een afbeelding van ons product.">
-        <img id="info-img02" class="info-row-02" src="images/product_01.png" alt="Hier komt een afbeelding van een detail van ons product.">
-        <img id="info-img03" class="info-row-03" src="images/product_01.png" alt="Hier komt een afbeelding van een detail van ons product.">
+        <img id="info-img01" class="info-row-01" src="images/product_01.png" alt="CCS - Polsbandje voor signalering">
+        <img id="info-img02" class="info-row-02" src="images/product_01.png" alt="CCS - Polsbandje gedragen.">
+        <img id="info-img03" class="info-row-03" src="images/product_01.png" alt="CCS - User Interface van het signaleringssysteem">
     </div>
 </div>
 
@@ -177,6 +176,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
                     //Set height of rows equal
                     $('p.info-row-01').height($('img.info-row-01').height());
                     $('p.info-row-02').height($('img.info-row-02').height());
+                    $('p.info-row-03').height($('img.info-row-03').height());
+                    $('p.info-row-04').height($('img.info-row-03').height());
                     $('.info-row-02').css('margin-top', $('#mainnav').outerHeight());
                     $('#info-read-more-block').height($('#info-left').height());
                     $('#info-read-more-block').width($('#info-left').outerWidth(true) + $('#info-right').outerWidth(true));	
@@ -212,7 +213,7 @@ Dit kan gewoon in een blokje tekst oid. Succes!
                     'height': real_height+'px'
                 }, 500, function(){
                     // animation done
-                    $("#info-left .info-row-03").append('<span id="info-expand" style="cursor: pointer; color: rgb(57,181,75)" onclick="readMore();"></span>');
+                    $("#info-left .info-row-04").append('<span id="info-expand" style="cursor: pointer; color: rgb(57,181,75)" onclick="readMore();"></span>');
                     $("#info-expand").html(read_more_text_closed);
                     expanded = true;
                 });
