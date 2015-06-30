@@ -15,7 +15,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 			power supplies: 4 pcs<br>
 			routers: 6 pcs<br>
 			incl. guidebook<br>
-			price: €6000
+			price: €6000<br>
+			1 year warranty
 		</div>
 	</div>
 
@@ -29,7 +30,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 			power supplies: 7 pcs<br>
 			routers: 11 pcs<br>
 			incl. guidebook<br>
-			price: €11000
+			price: €11000<br>
+			1 year warranty
 		</div>
 	</div>
 
@@ -43,7 +45,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 			power supplies: 10 pcs<br>
 			routers: 15 pcs<br>
 			incl. guidebook<br>
-			price: €15500
+			price: €15500<br>
+			2 years warranty
 		</div>
 	</div>
 
@@ -57,7 +60,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 			power supplies: 12 pcs<br>
 			routers: 19 pcs<br>
 			incl. guidebook<br>
-			price: €19000
+			price: €19000<br>
+			2 years warranty
 		</div>
 	</div>
 
@@ -71,7 +75,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 			power supplies: 14 pcs<br>
 			routers: 22 pcs<br>
 			incl. guidebook<br>
-			price: €22000
+			price: €22000<br>
+			3 years warranty
 		</div>
 	</div>
 
@@ -83,7 +88,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 			<span>Extra wristbands</span><br>
 			wristbands: 20 pcs<br>
 			incl. guidebook<br>
-			price: €1750
+			price: €1750<br>
+			1 year warranty
 		</div>
 	</div>
 
@@ -95,7 +101,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 			<span>Extra power supply</span><br>
 			power supply: 1 pc<br>
 			incl. guidebook<br>
-			price: €37.5
+			price: €37.5<br>
+			1 year warranty
 		</div>
 	</div>
 
@@ -107,7 +114,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 			<span>Extra router</span><br>
 			router: 1 pc<br>
 			incl. guidebook<br>
-			price: €110
+			price: €110<br>
+			1 year warranty
 		</div>
 	</div>
 
