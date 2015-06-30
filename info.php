@@ -11,9 +11,9 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 		</div>
 		<div class="cont_inf">
 			<span>Little</span><br>
-			wristband: 80<br>
-			power supply: 4<br>
-			routers: 6<br>
+			wristbands: 80 pcs<br>
+			power supplies: 4 pcs<br>
+			routers: 6 pcs<br>
 			incl. guidebook<br>
 			price: €6000
 		</div>
@@ -25,9 +25,9 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 		</div>
 		<div class="cont_inf">
 			<span>Small</span><br>
-			wristband: 140<br>
-			power supply: 7<br>
-			routers: 11<br>
+			wristbands: 140 pcs<br>
+			power supplies: 7 pcs<br>
+			routers: 11 pcs<br>
 			incl. guidebook<br>
 			price: €11000
 		</div>
@@ -39,9 +39,9 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 		</div>
 		<div class="cont_inf">
 			<span>Middle</span><br>
-			wristband: 200<br>
-			power supply: 10<br>
-			routers: 15<br>
+			wristbands: 200 pcs<br>
+			power supplies: 10 pcs<br>
+			routers: 15 pcs<br>
 			incl. guidebook<br>
 			price: €15500
 		</div>
@@ -53,9 +53,9 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 		</div>
 		<div class="cont_inf">
 			<span>Big</span><br>
-			wristband: 240<br>
-			power supply: 12<br>
-			routers: 19<br>
+			wristbands: 240 pcs<br>
+			power supplies: 12 pcs<br>
+			routers: 19 pcs<br>
 			incl. guidebook<br>
 			price: €19000
 		</div>
@@ -67,9 +67,9 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 		</div>
 		<div class="cont_inf">
 			<span>Large</span><br>
-			wristband: 280<br>
-			power supply: 14<br>
-			routers: 22<br>
+			wristbands: 280 pcs<br>
+			power supplies: 14 pcs<br>
+			routers: 22 pcs<br>
 			incl. guidebook<br>
 			price: €22000
 		</div>
@@ -81,7 +81,7 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 		</div>
 		<div class="cont_inf">
 			<span>Extra wristbands</span><br>
-			wristband: 20<br>
+			wristbands: 20 pcs<br>
 			incl. guidebook<br>
 			price: €1750
 		</div>
@@ -93,7 +93,7 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 		</div>
 		<div class="cont_inf">
 			<span>Extra power supply</span><br>
-			power supply: 1<br>
+			power supply: 1 pc<br>
 			incl. guidebook<br>
 			price: €37.5
 		</div>
@@ -104,8 +104,8 @@ Dit kan gewoon in een blokje tekst oid. Succes!
 			<img class="info_small" src="images/alleen_router.png" alt="C">
 		</div>
 		<div class="cont_inf">
-			<span>Extra routers</span><br>
-			routers: 1<br>
+			<span>Extra router</span><br>
+			router: 1 pc<br>
 			incl. guidebook<br>
 			price: €110
 		</div>
