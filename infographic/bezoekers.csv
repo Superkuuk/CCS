@@ -11,40 +11,40 @@ type,naam,bezoekers
 0,Enschede,1280
 0,Oldebekoop,2500
 0,Rijswijk,1850
+1,Groningen,3900
+1,Enschede,3250
+1,Amsterdam,5000
+1,Haarlem,3500
+1,Oldebekoop,645
+1,Purmerend,480
+1,Tijne,125
+1,Schuinesloot,45
+1,Almere,4100
 1,Groningen,4500
-1,Groningen,3250
-1,Groningen,4500
-1,Groningen,3250
-1,Groningen,4500
-1,Groningen,3250
-1,Groningen,3250
-1,Groningen,4500
-1,Groningen,3250
-1,Groningen,4500
-1,Groningen,3250
-2,Tomorrowland,5000
-2,Tomorrowland,1500
-2,Tomorrowland,3000
-2,Tomorrowland,5000
-2,Tomorrowland,5000
-2,Tomorrowland,1500
-2,Tomorrowland,3000
-2,Tomorrowland,5000
-3,Leenbakker Toernooi,1800
+1,Ootmarsum,1630
+2,Underground Hop,4650
+2,TIA Fest,1500
+2,Festival no. 3,3000
+2,Beachrockers,2800
+2,Beer Run Festival,5000
+2,Inflamous Festival,1500
+2,Let it out!,3000
+2,Bierfest Leeuwarden,5000
+3,SVR Atletiektoernooi,1800
 3,Leenbakker Toernooi,1200
-3,Leenbakker Toernooi,800
-3,Leenbakker Toernooi,1200
-3,Leenbakker Toernooi,300
-3,Leenbakker Toernooi,1800
-3,Leenbakker Toernooi,1200
-3,Leenbakker Toernooi,800
-3,Leenbakker Toernooi,1200
-3,Leenbakker Toernooi,300
-4,Nirvana,4500
-4,Nirvana,1700
-4,Nirvana,4500
-4,Nirvana,1700
-4,Nirvana,4500
-4,Nirvana,1700
+3,Binnenkamps voetbaltoernooi,800
+3,Weemoed sport,875
+3,Raquet Sneller,300
+3,Rennende Runners,1650
+3,vv Spliteinde Jaartoernooi,375
+3,Voetbaltoernooi 4,500
+3,Sportwereld feest,1350
+3,Tegenstrijders,300
+4,Rollende Rockers,300
+4,Twarres,1700
+4,Een Mooie Band,3900
+4,SweetGodAnimals,4500
+4,Trumbaland,100
+4,DusDanigDrums,1850
 5,0,0
 6,0,0

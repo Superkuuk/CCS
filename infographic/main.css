@@ -1,21 +1,15 @@
-#infographic {
-    width: 600px;
-}
 .bar {
 
 }
 .label {
-    fill: black;
+    fill: #C0C0C0;
     font-family: sans-serif;
     font-size: 8pt;
+    padding: 6px;
 }
 
-line {
-    fill: none;
-}
 .y-axis path, .y-axis line {
-    fill: #C0C0C0;
-    stroke: black;
+    fill: none;
     shape-rendering: crispEdges;
 }
 .x-axis text, y-axis text {
@@ -55,20 +49,3 @@ svg {
     margin-top: 6px;
     margin-bottom: 6px;
 }
-/* 
-#x-axis text:nth-child(2) {
-    margin-left: 20px;
-}
-#x-axis text:nth-child(3) {
-    margin-left: 75px;
-}
-#x-axis text:nth-child(4) {
-    margin-left: 60px;
-}
-#x-axis text:nth-child(5) {
-    margin-left: 28px;
-}
-#x-axis text:nth-child(6) {
-    margin-left: 27px;
-}
- */
