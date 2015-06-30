@@ -1,0 +1,50 @@
+type,naam,bezoekers
+0,Drachten,2000
+0,Enschede,3500
+0,Amsterdam Rijnakanaal,5000
+0,Rijswijk,4325
+0,Drachten,2750
+0,Enschede,1400
+0,Oldebekoop,775
+0,Rijswijk,2100
+0,Drachten,895
+0,Enschede,1280
+0,Oldebekoop,2500
+0,Rijswijk,1850
+1,Groningen,4500
+1,Groningen,3250
+1,Groningen,4500
+1,Groningen,3250
+1,Groningen,4500
+1,Groningen,3250
+1,Groningen,3250
+1,Groningen,4500
+1,Groningen,3250
+1,Groningen,4500
+1,Groningen,3250
+2,Tomorrowland,5000
+2,Tomorrowland,1500
+2,Tomorrowland,3000
+2,Tomorrowland,5000
+2,Tomorrowland,5000
+2,Tomorrowland,1500
+2,Tomorrowland,3000
+2,Tomorrowland,5000
+3,Leenbakker Toernooi,1800
+3,Leenbakker Toernooi,1200
+3,Leenbakker Toernooi,800
+3,Leenbakker Toernooi,1200
+3,Leenbakker Toernooi,300
+3,Leenbakker Toernooi,1800
+3,Leenbakker Toernooi,1200
+3,Leenbakker Toernooi,800
+3,Leenbakker Toernooi,1200
+3,Leenbakker Toernooi,300
+4,Nirvana,4500
+4,Nirvana,1700
+4,Nirvana,4500
+4,Nirvana,1700
+4,Nirvana,4500
+4,Nirvana,1700
+5,0,0
+6,0,0

@@ -22,6 +22,9 @@ Other events that might benefit from the communication control system are street
         <img id="event-img03" class="event-row-03" src="images/events03.jpg" alt="Hier komt een afbeelding van een festival.">
         <img id="event-img04" class="event-row-04" src="images/events04.jpg" alt="Hier komt een afbeelding van een festival.">
         <img id="event-img05" class="event-row-05" src="images/events05.jpg" alt="Hier komt een afbeelding van een festival.">
+        <div id="event-img06" class="infographic event-row-06">
+            <?php include_once('infographic/index.html'); ?>
+        </div>
     </div>
 </div>
 
@@ -48,8 +51,10 @@ Other events that might benefit from the communication control system are street
                     $('p.event-row-03').height($('img.event-row-03').height());
                     $('p.event-row-04').height($('img.event-row-04').height());
                     $('p.event-row-05').height($('img.event-row-05').height());
-                    $('.event-row-02, .event-row-03, .event-row-04, .event-row-05').css('margin-top', $('#mainnav').outerHeight());
-                    $('#event-read-more-block').height($('#event-right').outerHeight(true));
+                    $('#infographic').height($('img.event-row-05').height());
+                    $('#infographic').css('margin-top', $('img.event-row-05').offset().top + $('img.event-row-05').height());
+                    $('.event-row-02, .event-row-03, .event-row-04, .event-row-05, .event-row-06').css('margin-top', $('#mainnav').outerHeight());
+                    $('#event-read-more-block').height($('#event-right').outerHeight(true) + $('#event-img6').height());
                     $('#event-read-more-block').width($('#event-left').outerWidth(true) + $('#event-right').outerWidth(true));	
 
                     // automated calculated terminated

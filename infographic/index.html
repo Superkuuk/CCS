@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<head>    
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="infographic/main.css">
+    
+    <script src="infographic/d3.min.js"></script>
+<!--
+    <script src="jquery-1.11.3.min.js"></script>
+-->
+<script>
+$(document).ready( function() {
+    
+    //Global variables
+    var dataset = [];
+    var type = [];
+    var bezoekers = [];
+    var naam = [];
+    
+    /*Type:
+        0 = Kermis,
+        1 = Braderie,
+        2 = Festival,
+        3 = Sport Evenement,
+        4 = Concert,
+        5 = Conferentie
+    */
+    
+    //Import csv, call buildBars
+    var dataset;
+    d3.csv("infographic/bezoekers.csv", function(error, data) {
+        if (error) {  //If error is not null, something went wrong.
+          console.log(error);  //Log the error.
+        } else {      //If no error, the file loaded correctly. Yay!
+            dataset = data;
+            data.sort(function(a,b) {return a.type-b.type;});
+            console.log(data);
+            data.forEach( function(d, i) {
+                type[i] = parseInt(d.type);
+                bezoekers[i] = parseInt(d.bezoekers);
+                naam[i] = d.naam;
+            });
+
+            buildUpperBarChart(type, bezoekers);
+            buildLowerBarChart(type, naam, bezoekers);
+        }
+    });     
+    
+        //Variables, feel free to change them
+        var width = $('#event-img05').width();   //Width of SVG (graph)
+        var height = width * (2/5);              //Heigth of SVG (graph)
+        var barMargin = 50;              //Space between bars
+        var verticalGraphMargin = 0;   //Space between bottom SVG and bottom of bars
+        var xAxisWidth = 1;             //Thickness of the line of the x-axis (usually 1)
+        var yAxisWidth = 1;             //Thickness of the line of the y-axis (usually 1)
+        var verticalLabelOffset = 15;   //Vertical label offset from top of bar
+        var horizontalLabelOffset = 5;  //Horizontal label offset from left side of the bar
+    
+        var duplicates = [];            //Array of number of duplicates per type
+        var totaalBezoekers = [];       //Array of total number of attendees per type
+        var gemiddeldBezoekers = [];    //Array for average number of attendees per type
+        var tempBezoekers = [];
+        var maxBezoekers;
+    
+        var verticalScale;
+        var horizontalScale;
+    
+        var zoomedActive = false;
+        var animationActive = true;
+        var hovered = false;
+    
+    function buildUpperBarChart(type, bezoekers) {
+                
+        //Count number of duplicates and add number of attendee
+        type.sort();
+        
+        var current = null;
+        var count = 0;
+        var iStart = 0;
+        
+        type.forEach( function(d, i) {
+            if(d != current) {
+                if(count > 0) {
+                    duplicates[current] = count;
+                    for(index = iStart; index < duplicates[current] + iStart; index++) {
+                        totaalBezoekers[current]+=bezoekers[index];
+                    }
+                    iStart+=count;
+                }
+                current = d;
+                totaalBezoekers[current] = 0;
+                count = 1;
+                if(i >= type.length - 1) {
+                    duplicates[current] = count;
+                    for(index = iStart; index < duplicates[current] + iStart; index++) {
+                        totaalBezoekers[current]+=bezoekers[index];
+                    }
+                }
+            } else {
+                count++;
+            }    
+        });
+        
+        totaalBezoekers.forEach( function(d, i) {
+            gemiddeldBezoekers[i] = totaalBezoekers[i] / duplicates[i];
+        });
+        
+        maxBezoekers = d3.max(bezoekers, function(d) { return d; });
+        
+        //Defining the sizes of the bars
+        verticalScale = d3.scale.linear()
+                        .domain([0, d3.max(gemiddeldBezoekers, function(d) { return d; })])
+                        .range([height - verticalGraphMargin, 0]);
+        horizontalScale = d3.scale.linear()
+                        .domain([0, type.length])
+                        .range([0, width]);
+        
+        
+
+        //Creating the axises
+        var xAxis = d3.svg
+                .axis()  
+                .scale(horizontalScale)
+                .orient('top');
+        var yAxis = d3.svg
+                .axis()
+                .scale(verticalScale)
+                .orient('left')
+                .ticks(4);
+
+        //Sets width and height of SVG (#graph).
+        d3.select('#graph').attr('width', width).attr('height', height);
+
+        var left = [];
+        left[0] = 0;
+        //Creates bars.
+        d3.select("#graph")
+            .selectAll("rect")
+            .data(gemiddeldBezoekers)
+            .enter()
+            .append("rect")
+            .attr('class', function(d, i) { return 'upper-bar bar bar'+i})
+            .attr('x', function(d, i) {
+                    left[i+1] = left[i] + horizontalScale(duplicates[i]);
+                    return left[i];
+            })
+            .attr('y', height - verticalGraphMargin )
+            .attr('fill', '#C0C0C0')
+            .attr('width', function (d, i) {
+                        return horizontalScale(duplicates[i]) - barMargin;
+            })
+            .attr('height', 0)
+            .attr('fill', function (d, i) { 
+                return 'rgba('+ Math.round(Math.random()*255) +','+ Math.round(Math.random()*255) +','+ Math.round(Math.random()*255) +', 0.5)'; 
+            })
+            .transition()
+            .duration(2000)
+            .attr('height', function(d) {
+                    return height - verticalScale(d);
+                })
+            .attr('y', function(d) {
+                    return verticalScale(d);
+                })
+            .each('end', function() { animationActive = false; });
+
+        
+        
+        //Set hover event, animate bars height on hover
+        d3.select('#infographic')
+            .on('mouseenter', function(e) {
+                if(!zoomedActive && !animationActive && !hovered) {
+                    hovered = true;
+                    animationActive = true;
+                    d3.select('#graph')
+                        .transition()
+                        .duration(750)
+                        .attr('height', height / 3);
+                    d3.selectAll('.lower-graph')
+                        .transition()
+                        .duration(750)
+                        .attr('height', height);
+                    d3.selectAll('#infographic .bar')
+                        .each( function (i) {
+                        d3.select(this)
+                            .transition()
+                            .duration(750)
+                            .attr('height', $(this).attr('height')*3)
+                            .each('end', function() { animationActive = false; });
+                        })
+                    d3.selectAll('#infographic .upper-bar')
+                        .each( function (i) {
+                        d3.select(this)
+                            .transition()
+                            .duration(750)
+                            .attr('height', $(this).attr('height')/3)
+                            .attr('y', $(this).attr('y')/3);
+                        });
+                }
+            })
+            .on('mouseleave', function() {
+                if(!zoomedActive && !animationActive && hovered) {
+                    hovered = false;
+                    animationActive = true;
+                    d3.selectAll('.bar')
+                        .each( function (i) {
+                        d3.select(this)
+                            .transition()
+                            .duration(750)
+                            .attr('height', $(this).attr('height')/3);
+                    });
+                    d3.selectAll('#infographic .upper-bar')
+                        .each( function (i) {
+                        d3.select(this)
+                            .transition()
+                            .duration(750)
+                            .attr('height', $(this).attr('height')*3)
+                            .attr('y', $(this).attr('y')*3)
+                            .each('end', function() { animationActive = false; });
+                        });
+                    d3.select('#graph')
+                        .transition()
+                        .duration(750)
+                        .attr('height', height);
+                    d3.selectAll('.lower-graph')
+                        .transition()
+                        .duration(750)
+                        .attr('height', height / 3);
+                }
+            });
+
+        //Adds y-axis.
+        d3.select('#graph')
+            .append('g')
+            .attr('class', 'y-axis')
+            .attr("transform", "translate("+ (width - yAxisWidth) +",0)")
+            .call(yAxis); 
+    }
+    
+    
+    function buildLowerBarChart(type, naam, bezoekers) {
+        for(var graphIndex = 0; graphIndex < duplicates.length; graphIndex++) {
+
+            var thisWidth = horizontalScale(duplicates[graphIndex]);
+            var lowerWidth = horizontalScale(duplicates[graphIndex]) - barMargin;
+            var lowerHeight = width * (1/5);
+
+            //Creates a temporary array, which the attendees used in this graph are cut off.
+            tempBezoekers = bezoekers;
+            thisBezoekers = tempBezoekers.splice(0, duplicates[graphIndex]);
+            tempDataset = dataset;
+            thisDataset = dataset.splice(0, duplicates[graphIndex]);
+            tempNaam = naam;
+            thisNaam = tempNaam.splice(0, duplicates[graphIndex]);
+
+            //Redefining the sizes of the bars
+            verticalLowerScale = d3.scale.linear()
+                    .domain([0, maxBezoekers])
+                    .range([0, lowerHeight - verticalGraphMargin]);
+            horizontalLowerScale = d3.scale.linear()
+                    .domain([0, duplicates[graphIndex]])
+                    .range([0, thisWidth]);
+            
+            //Sets width and height of SVG.
+            d3.select('#infographic').append('svg').attr('id', 'graph'+graphIndex).attr('class','lower-graph bar'+graphIndex);
+            d3.select('#graph'+graphIndex).attr('width', lowerWidth).attr('height', lowerHeight);
+
+            var left = [];
+            left[0] = 0;
+            //Creates bars.
+            d3.select("#graph"+graphIndex)
+                .selectAll("rect")
+                .data(thisBezoekers)
+                .enter()
+                .append("rect")
+                .attr('class', 'bar')
+                .attr('x', function(d, i) {
+                        left[i+1] = left[i] + lowerWidth / duplicates[graphIndex];
+                        return left[i];
+                })
+                .attr('y', 0 )
+                .attr('fill', function() {
+                        return $('.upper-bar:nth-child('+(graphIndex+1)+')').attr('fill');
+                })
+                .attr('width', function () {
+                            return lowerWidth / duplicates[graphIndex];
+                })
+                .attr('height', 0)
+                .transition()
+                .duration(2000)
+                .attr('height', function(d) {
+                        return (verticalLowerScale(d)) / 2;
+                });
+            //Add label
+            left[0] = 0;
+            d3.select('#graph'+graphIndex)
+                    .selectAll('text')
+                    .data(thisDataset)
+                    .enter()
+                    .append('text')
+                    .attr('class', 'label')
+                    .text(function(d) { return d.naam+', '+d.bezoekers+' bezoekers'; })
+                    .attr('x', function(d, i) {
+                            left[i+1] = left[i] + lowerWidth / duplicates[graphIndex];
+                            return left[i];
+                    })
+                    .attr('y', function(d) {
+                        return (lowerHeight / 2);
+                    })
+                    .attr('opacity', 0);   
+            
+            var loweryAxis = d3.svg
+                .axis()
+                .scale(verticalLowerScale)
+                .orient('left');
+            
+            //Adds y-axis.
+            d3.select('#graph'+$('.lower-graph').length - 2)
+                .append('g')
+                .attr('class', 'y-axis')
+                .attr("transform", "translate("+ (width - yAxisWidth) +",0)")
+                .call(loweryAxis); 
+            
+            //Animate click on lower-graph
+            d3.selectAll('.lower-graph')
+                .on('click', function(d) { 
+                if(!zoomedActive) {
+                    zoomedActive = true;
+                    var self = this;
+                    var selfIndex =  $(this).index();
+                    horizontalResize = (width - 30) / $(this).width();
+                    
+                    //Reduce opacity of bars which are not selected.
+                    d3.selectAll('.upper-bar')
+                        .filter(function() {
+                            return selfIndex - 2 != $(this).index();
+                        })
+                        .attr('opacity', 0.2);
+                    
+                    //Animate width of selected graph.
+                    d3.select(self)
+                        .transition()
+                        .duration(200)
+                        .attr('width', function(d) {
+                            return width - ((width / 20) *2);
+                        })                    
+                    $(self).css('margin-left', width / 20);
+                    $('.lower-graph').not(self).css('margin-left', 0);
+                    
+                    //Animate bars within the selected graph.
+                    d3.select(self).selectAll('.bar')
+                        .transition()
+                        .duration(200)
+                        .attr('width', function() {
+                            return $(this).attr('width') * horizontalResize - 15;
+                        })
+                        .attr('x', function(d,i) {
+                            return $(this).attr('x') * horizontalResize;    
+                        });
+                    
+                    //Add hover event for showing data.
+                     d3.selectAll('.bar')
+                        .on('mouseenter', function() {
+                            labelindex = $(this).index() + $(this).parent().children().length / 2 + 1;
+                            $(this).parent().children('.label:nth-child('+labelindex+')').attr('opacity', 1);
+                        })
+                        .on('mouseleave', function() {
+                            $('.label').attr('opacity', 0);
+                        });
+                    
+                    //Add click event for returning to original state.
+                    d3.selectAll('.upper-bar') 
+                        .on('click', function() {
+                            alert('Return to original state');
+                        });
+                    
+                    //(Re)set text position.
+                    d3.select(self).selectAll('text')
+                        .attr('x', function() {
+                            return $(this).attr('x') * horizontalResize;
+                        })
+                        .on('mouseenter', function() {$(this).attr('opacity', 1);})
+                        .on('mouseleave', function() {$(this).attr('opacity', 0);});
+
+                    //Remove graphs.
+                    d3.selectAll('.lower-graph')
+                        .filter(function(x) {
+                            return self != this;
+                        })
+                        .attr('opacity', 1)
+                        .transition()
+                        .duration(200)
+                        .attr('width', 0);
+                }
+            });
+        }
+    }
+});
+    
+</script>
+</head>
+
+<body>
+    
+    <div id='infographic'>
+        <svg id="graph">
+        </svg>
+        <div id="x-axis">
+            <hr>
+            <text class="first">Kermis</text>
+            <text>Braderie</text>
+            <text>Festival</text>
+            <text>Sport Evenement</text>
+            <text>Concert</text>
+            <hr>
+        </div>
+    </div>
+    
+</body>
