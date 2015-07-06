@@ -1,0 +1,42 @@
+ @font-face { font-family: "Slim Joe"; src: url('slim_joe/slim_joe.otf'); } 
+ @font-face { font-family: "Big John"; src: url('big_john/big_john.otf'); } 
+
+
+body, html {
+	font-family: 'Century Gothic', sans-serif;
+    min-height:100%;
+    min-width: 700px;
+    margin-left: 48px;
+    margin-top: 30px;
+    overflow: hidden;
+    padding:0;
+	background-attachment:fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	line-height: 1.7em;
+}
+p {
+    margin: 0; padding: 0;
+}
+
+/* Contacts */
+
+/* 
+|8%[38%]8%[38%]8%|
+ */
+#contact_left {
+	height: 180px;
+}
+
+.profile {
+	float: left;
+	margin: 1%;
+}
+
+.profile div {
+	line-height: 1.7em;
+	margin-top: calc(-5.2 * 1.7em);
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
