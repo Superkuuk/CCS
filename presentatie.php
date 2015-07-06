@@ -9,6 +9,13 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <link href="style/presentatie.css" rel="stylesheet">
+<script>
+$(document).ready( function() {
+	$("#contacts_container").css('margin-left', ( ($(window).width()-1080 )/2 ) );
+	$("#contact_left").css('margin-left', ( ($(window).width()-1080 )/2 ) );
+});
+</script>
+
 </head>
 <body>
 
