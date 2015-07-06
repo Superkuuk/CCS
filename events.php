@@ -54,8 +54,8 @@ Other events that might benefit from the communication control system are street
                     $('p.event-row-05').height($('img.event-row-05').height());
                     $('#infographic').height($(this).height() * (4/5));
                     $('#infographic, .infographic p').css('opacity', 0);
-                    $('#infographic').css('margin-top', $('img.event-row-05').offset().top + $('img.event-row-05').height());
-                    $('#infographic').next('p').css('margin-top', $('#infographic').height());
+                    $('#infographic').css('margin-top', $('img.event-row-05').offset().top + $('img.event-row-05').height() * 0.75);
+                    $('#infographic').next('p').css('margin-top', $('#infographic').height() * 1.25);
                     $('.event-row-02, .event-row-03, .event-row-04, .event-row-05, .event-row-06').css('margin-top', $('#mainnav').outerHeight());
                     $('#event-read-more-block').height($('#event-right').outerHeight(true) + $('#event-img6').height());
                     $('#event-read-more-block').width($('#event-left').outerWidth(true) + $('#event-right').outerWidth(true));	
