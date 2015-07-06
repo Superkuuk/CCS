@@ -29,7 +29,7 @@ $(document).ready( function() {
 		The Netherlands<br>
 	</div>
 	<div style="float:right; margin-right: 100px">
-		<span style="font-size: 1.35em">Groep 10</span>
+		<span style="font-size: 1.35em">Group 10</span>
 
 	</div>
 </div>
